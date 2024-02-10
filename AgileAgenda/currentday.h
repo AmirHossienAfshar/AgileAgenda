@@ -15,6 +15,9 @@ public:
     explicit CurrentDay(QWidget *parent = nullptr);
     ~CurrentDay();
 
+signals:
+    void showMainWindow();
+
 private slots:
     void on_pushButton_clicked();
 

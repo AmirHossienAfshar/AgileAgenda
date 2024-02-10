@@ -8,6 +8,8 @@ CurrentDay::CurrentDay(QWidget *parent) :
     ui(new Ui::CurrentDay)
 {
     ui->setupUi(this);
+    connect(ui->pushButton, &QPushButton::clicked, this, &CurrentDay::on_pushButton_clicked);
+
 }
 
 CurrentDay::~CurrentDay()
@@ -17,8 +19,14 @@ CurrentDay::~CurrentDay()
 
 void CurrentDay::on_pushButton_clicked()
 {
+    /*
     MainWindow *welcomePage = new MainWindow;
     this->hide();
     welcomePage->show();
+    //delete this;  // this part is considered dangerous, try to figure this out.
+    */
+    emit showMainWindow();
+    this->hide();
+
 }
 

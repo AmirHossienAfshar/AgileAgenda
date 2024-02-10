@@ -7,6 +7,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -17,8 +20,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    CurrentDay *page2 = new CurrentDay;
+    /*CurrentDay *page2 = new CurrentDay;
     this->hide();
-    page2->show();
+    page2->show();*/
+    emit showCurrentDayPage();
+    this->hide();
 }
 

@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void showCurrentDayPage(); // Add this line
+
 private slots:
     void on_pushButton_clicked();
 
