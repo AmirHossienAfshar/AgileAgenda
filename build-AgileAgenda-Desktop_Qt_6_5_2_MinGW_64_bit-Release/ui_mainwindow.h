@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -26,6 +27,7 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QPushButton *pushButton;
+    QGraphicsView *graphicsView;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -38,12 +40,17 @@ public:
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(310, 50, 141, 131));
-        label->setStyleSheet(QString::fromUtf8("color: rgb(170, 255, 0);\n"
-"background-color: rgb(85, 170, 255);"));
+        label->setGeometry(QRect(510, 30, 261, 241));
+        label->setStyleSheet(QString::fromUtf8(""));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(280, 240, 211, 71));
+        pushButton->setGeometry(QRect(490, 360, 211, 71));
+        graphicsView = new QGraphicsView(centralwidget);
+        graphicsView->setObjectName("graphicsView");
+        graphicsView->setGeometry(QRect(40, 10, 581, 381));
+        graphicsView->setMinimumSize(QSize(421, 0));
+        graphicsView->setStyleSheet(QString::fromUtf8("color: rgb(239, 255, 138);\n"
+"border-image: url(:/logo/logoLarge.png);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -61,7 +68,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "wellcome to AgileAgende!", nullptr));
+        label->setText(QString());
         pushButton->setText(QCoreApplication::translate("MainWindow", "current Day", nullptr));
     } // retranslateUi
 

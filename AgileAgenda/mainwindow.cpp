@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "currentday.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -9,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
 
+    QPixmap Logo(":/images/image.png");
+    //ui->label->setFixedSize(Logo.size());
 
 }
 
@@ -20,9 +23,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    /*CurrentDay *page2 = new CurrentDay;
+    /* old method that could cause memory leak.
+    CurrentDay *page2 = new CurrentDay;
     this->hide();
-    page2->show();*/
+    page2->show();
+    */
     emit showCurrentDayPage();
     this->hide();
 }
