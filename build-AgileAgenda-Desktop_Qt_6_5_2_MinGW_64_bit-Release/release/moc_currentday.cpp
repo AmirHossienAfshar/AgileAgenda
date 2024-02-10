@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'mainwindow.h'
+** Meta object code from reading C++ file 'currentday.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.5.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../AgileAgenda/mainwindow.h"
+#include "../../AgileAgenda/currentday.h"
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)
@@ -19,7 +19,7 @@ QT_BEGIN_MOC_NAMESPACE
 #include <memory>
 
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'mainwindow.h' doesn't include <QObject>."
+#error "The header file 'currentday.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.5.2. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -36,28 +36,28 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
-static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
-    "MainWindow",
+struct qt_meta_stringdata_CLASSCurrentDayENDCLASS_t {};
+static constexpr auto qt_meta_stringdata_CLASSCurrentDayENDCLASS = QtMocHelpers::stringData(
+    "CurrentDay",
     "on_pushButton_clicked",
     ""
 );
 #else  // !QT_MOC_HAS_STRING_DATA
-struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
+struct qt_meta_stringdata_CLASSCurrentDayENDCLASS_t {
     uint offsetsAndSizes[6];
     char stringdata0[11];
     char stringdata1[22];
     char stringdata2[1];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_stringdata_CLASSMainWindowENDCLASS = {
+    uint(sizeof(qt_meta_stringdata_CLASSCurrentDayENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSCurrentDayENDCLASS_t qt_meta_stringdata_CLASSCurrentDayENDCLASS = {
     {
-        QT_MOC_LITERAL(0, 10),  // "MainWindow"
+        QT_MOC_LITERAL(0, 10),  // "CurrentDay"
         QT_MOC_LITERAL(11, 21),  // "on_pushButton_clicked"
         QT_MOC_LITERAL(33, 0)   // ""
     },
-    "MainWindow",
+    "CurrentDay",
     "on_pushButton_clicked",
     ""
 };
@@ -65,7 +65,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
 #endif // !QT_MOC_HAS_STRING_DATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSCurrentDayENDCLASS[] = {
 
  // content:
       11,       // revision
@@ -87,25 +87,25 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject CurrentDay::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSMainWindowENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSMainWindowENDCLASS,
+    qt_meta_stringdata_CLASSCurrentDayENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSCurrentDayENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainWindowENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSCurrentDayENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
+        QtPrivate::TypeAndForceComplete<CurrentDay, std::true_type>,
         // method 'on_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void CurrentDay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<MainWindow *>(_o);
+        auto *_t = static_cast<CurrentDay *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->on_pushButton_clicked(); break;
@@ -115,20 +115,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     (void)_a;
 }
 
-const QMetaObject *MainWindow::metaObject() const
+const QMetaObject *CurrentDay::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MainWindow::qt_metacast(const char *_clname)
+void *CurrentDay::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSMainWindowENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSCurrentDayENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int CurrentDay::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>CurrentDay</class>
+ <widget class="QMainWindow" name="CurrentDay">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,34 +14,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>50</y>
-      <width>141</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(170, 255, 0);
-background-color: rgb(85, 170, 255);</string>
-    </property>
-    <property name="text">
-     <string>wellcome to AgileAgende!</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>240</y>
-      <width>211</width>
-      <height>71</height>
+      <x>290</x>
+      <y>190</y>
+      <width>221</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="text">
-     <string>current Day</string>
+     <string>home page</string>
     </property>
    </widget>
   </widget>
