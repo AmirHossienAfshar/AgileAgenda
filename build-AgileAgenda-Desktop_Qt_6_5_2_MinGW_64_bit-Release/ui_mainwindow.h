@@ -28,6 +28,7 @@ public:
     QLabel *label;
     QPushButton *pushButton;
     QGraphicsView *graphicsView;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,26 +36,40 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(960, 640);
+        MainWindow->setMinimumSize(QSize(960, 640));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(510, 30, 261, 241));
-        label->setStyleSheet(QString::fromUtf8(""));
+        label->setGeometry(QRect(10, 10, 940, 610));
+        label->setStyleSheet(QString::fromUtf8("background-color: rgb(142, 148, 124);\n"
+"border-radius: 10px;\n"
+""));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(490, 360, 211, 71));
+        pushButton->setGeometry(QRect(630, 130, 211, 71));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(40, 10, 581, 381));
+        graphicsView->setGeometry(QRect(20, 20, 590, 430));
         graphicsView->setMinimumSize(QSize(421, 0));
-        graphicsView->setStyleSheet(QString::fromUtf8("color: rgb(239, 255, 138);\n"
-"border-image: url(:/logo/logoLarge.png);"));
+        graphicsView->setStyleSheet(QString::fromUtf8("border-image: url(:/newBrand.png);\n"
+"border-radius: 15px;\n"
+""));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(20, 460, 590, 131));
+        label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);\n"
+""));
+        label_2->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 960, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -70,6 +85,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QString());
         pushButton->setText(QCoreApplication::translate("MainWindow", "current Day", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Developed By: Amir Hossein Afshar", nullptr));
     } // retranslateUi
 
 };

@@ -110,6 +110,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_Pictures.cpp
 release/qrc_Pictures.cpp: ../AgileAgenda/Pictures.qrc \
 		C:/Qt/6.5.2/mingw_64/bin/rcc.exe \
+		../AgileAgenda/newBrand.png \
 		../AgileAgenda/logoLarge.png
 	C:\Qt\6.5.2\mingw_64\bin\rcc.exe -name Pictures --no-zstd ..\AgileAgenda\Pictures.qrc -o release\qrc_Pictures.cpp
 
@@ -1042,9 +1043,17 @@ release/mainwindow.o: ../AgileAgenda/mainwindow.cpp ../AgileAgenda/mainwindow.h 
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainter.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QMenuBar \

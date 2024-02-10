@@ -2,4 +2,7 @@
     <qresource prefix="/logo">
         <file>logoLarge.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>newBrand.png</file>
+    </qresource>
 </RCC>

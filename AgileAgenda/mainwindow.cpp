@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
 
     QPixmap Logo(":/images/image.png");
-    //ui->label->setFixedSize(Logo.size());
 
 }
 

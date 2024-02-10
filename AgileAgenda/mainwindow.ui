@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>960</width>
+    <height>640</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>960</width>
+    <height>640</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,14 +23,16 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>30</y>
-      <width>261</width>
-      <height>241</height>
+      <x>10</x>
+      <y>10</y>
+      <width>940</width>
+      <height>610</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(142, 148, 124);
+border-radius: 10px;
+</string>
     </property>
     <property name="text">
      <string/>
@@ -33,11 +41,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>360</y>
+      <x>630</x>
+      <y>130</y>
       <width>211</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 190, 136);</string>
     </property>
     <property name="text">
      <string>current Day</string>
@@ -46,10 +57,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>581</width>
-      <height>381</height>
+      <x>20</x>
+      <y>20</y>
+      <width>590</width>
+      <height>430</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -59,8 +70,32 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 255, 138);
-border-image: url(:/logo/logoLarge.png);</string>
+     <string notr="true">border-image: url(:/newBrand.png);
+border-radius: 15px;
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>460</y>
+      <width>590</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);
+</string>
+    </property>
+    <property name="text">
+     <string>Developed By: Amir Hossein Afshar</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -69,7 +104,7 @@ border-image: url(:/logo/logoLarge.png);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>960</width>
      <height>21</height>
     </rect>
    </property>
