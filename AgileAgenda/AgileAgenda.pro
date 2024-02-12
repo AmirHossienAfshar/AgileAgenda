@@ -11,15 +11,18 @@ CONFIG += c++17
 SOURCES += \
     currentday.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plannerpage.cpp
 
 HEADERS += \
     currentday.h \
-    mainwindow.h
+    mainwindow.h \
+    plannerpage.h
 
 FORMS += \
     currentday.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    plannerpage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

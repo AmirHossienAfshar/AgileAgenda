@@ -7,13 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>960</width>
-    <height>640</height>
+    <height>682</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>960</width>
     <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>960</width>
+    <height>682</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -40,58 +46,68 @@ border-radius: 10px;
       <property name="title">
        <string/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>590</width>
-           <height>150</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>1000</width>
-           <height>300</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(50, 66, 101);
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>590</width>
+         <height>430</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>590</width>
+         <height>430</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>1000</width>
+         <height>1000</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/newBrand.png);
+border-radius: 15px;
+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>460</y>
+         <width>590</width>
+         <height>150</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>590</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>1000</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(50, 66, 101);
 border-radius: 15px;
 font: 900 16pt &quot;Maven Pro&quot;;
 color: rgb(188, 190, 136);
 </string>
-         </property>
-         <property name="text">
-          <string>Developed By: Amir Hossein Afshar</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QGraphicsView" name="graphicsView">
-         <property name="minimumSize">
-          <size>
-           <width>590</width>
-           <height>430</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>590</width>
-           <height>430</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border-image: url(:/newBrand.png);
-border-radius: 15px;
-</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+       </property>
+       <property name="text">
+        <string>Developed By: Amir Hossein Afshar</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
     </item>
     <item row="0" column="1">
@@ -102,65 +118,95 @@ border-radius: 15px;
         <height>621</height>
        </size>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>325</width>
+        <height>621</height>
+       </size>
+      </property>
       <property name="title">
        <string/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="groupBox_3">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>300</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(50, 66, 101);
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>307</width>
+         <height>300</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>280</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(50, 66, 101);
 border-radius: 15px;
 font: 900 16pt &quot;Maven Pro&quot;;
 color: rgb(188, 190, 136);</string>
-         </property>
-         <property name="title">
-          <string/>
-         </property>
-         <widget class="QPushButton" name="pushButton">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>110</y>
-            <width>80</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(188, 190, 136);</string>
-          </property>
-          <property name="text">
-           <string>current Day</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="groupBox_4">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>280</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border-radius: 15px;
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>110</y>
+          <width>161</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(188, 190, 136);
+color: rgb(17, 0, 255);</string>
+        </property>
+        <property name="text">
+         <string>current Day</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>170</y>
+          <width>161</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>330</y>
+         <width>307</width>
+         <height>280</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>280</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 15px;
 background-color: rgb(89, 123, 110);
 font: 900 16pt &quot;Maven Pro&quot;;
 color: rgb(188, 190, 136);</string>
-         </property>
-         <property name="title">
-          <string/>
-         </property>
-        </widget>
-       </item>
-      </layout>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>

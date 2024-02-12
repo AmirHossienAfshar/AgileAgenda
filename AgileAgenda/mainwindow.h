@@ -1,3 +1,6 @@
+#include "currentday.h"
+#include "plannerpage.h"
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -17,11 +20,15 @@ public:
 
 signals:
     void showCurrentDayPage(); // Add this line
+    void showPlannerPage();
 
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

@@ -9,8 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
+    connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::on_pushButton_2_clicked);
 
-    QPixmap Logo(":/images/image.png");
+    //QPixmap Logo(":/images/image.png");
 
 }
 
@@ -29,5 +30,13 @@ void MainWindow::on_pushButton_clicked()
     */
     emit showCurrentDayPage();
     this->hide();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    emit showPlannerPage();
+    this->hide();
+    //currentDayPage->hide();
 }
 
