@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "currentday.h"
+#include <QDate>
+#include <QDebug>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::on_pushButton_2_clicked);
 
     //QPixmap Logo(":/images/image.png");
+
+    QDate currentDate = QDate::currentDate();
+    QString dateString = currentDate.toString("yyyy-MM-dd"); // Adjust the format as needed
+
+    ui->labelText->setText(dateString);
+
 
 }
 
@@ -37,6 +46,5 @@ void MainWindow::on_pushButton_2_clicked()
 {
     emit showPlannerPage();
     this->hide();
-    //currentDayPage->hide();
 }
 

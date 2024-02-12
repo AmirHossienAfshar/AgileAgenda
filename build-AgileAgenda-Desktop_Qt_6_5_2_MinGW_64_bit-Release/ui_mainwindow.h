@@ -36,6 +36,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QGroupBox *groupBox_4;
+    QLabel *labelText;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,9 +44,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(960, 682);
+        MainWindow->resize(960, 690);
         MainWindow->setMinimumSize(QSize(960, 640));
-        MainWindow->setMaximumSize(QSize(960, 682));
+        MainWindow->setMaximumSize(QSize(960, 690));
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(142, 148, 124);\n"
 "border-radius: 10px;\n"
 ""));
@@ -59,15 +60,16 @@ public:
         groupBox->setStyleSheet(QString::fromUtf8("border-color: rgb(50, 66, 101);"));
         graphicsView = new QGraphicsView(groupBox);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(9, 9, 590, 430));
+        graphicsView->setGeometry(QRect(10, 20, 591, 430));
         graphicsView->setMinimumSize(QSize(590, 430));
         graphicsView->setMaximumSize(QSize(1000, 1000));
         graphicsView->setStyleSheet(QString::fromUtf8("border-image: url(:/newBrand.png);\n"
+"border-color: rgb(96, 107, 112);\n"
 "border-radius: 15px;\n"
 ""));
         label_2 = new QLabel(groupBox);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(10, 460, 590, 150));
+        label_2->setGeometry(QRect(10, 465, 591, 155));
         label_2->setMinimumSize(QSize(590, 150));
         label_2->setMaximumSize(QSize(1000, 300));
         label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
@@ -85,7 +87,7 @@ public:
         groupBox_2->setMaximumSize(QSize(325, 621));
         groupBox_3 = new QGroupBox(groupBox_2);
         groupBox_3->setObjectName("groupBox_3");
-        groupBox_3->setGeometry(QRect(9, 9, 307, 300));
+        groupBox_3->setGeometry(QRect(0, 20, 307, 300));
         groupBox_3->setMinimumSize(QSize(300, 280));
         groupBox_3->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
@@ -101,12 +103,15 @@ public:
         pushButton_2->setGeometry(QRect(60, 170, 161, 51));
         groupBox_4 = new QGroupBox(groupBox_2);
         groupBox_4->setObjectName("groupBox_4");
-        groupBox_4->setGeometry(QRect(10, 330, 307, 280));
+        groupBox_4->setGeometry(QRect(0, 340, 307, 280));
         groupBox_4->setMinimumSize(QSize(300, 280));
         groupBox_4->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
 "background-color: rgb(89, 123, 110);\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
+        labelText = new QLabel(groupBox_4);
+        labelText->setObjectName("labelText");
+        labelText->setGeometry(QRect(40, 30, 171, 71));
 
         gridLayout->addWidget(groupBox_2, 0, 1, 1, 1);
 
@@ -134,6 +139,7 @@ public:
         pushButton->setText(QCoreApplication::translate("MainWindow", "current Day", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         groupBox_4->setTitle(QString());
+        labelText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

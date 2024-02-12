@@ -15,6 +15,12 @@ public:
     explicit PlannerPage(QWidget *parent = nullptr);
     ~PlannerPage();
 
+signals:
+    void showMainWindow();
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::PlannerPage *ui;
 };

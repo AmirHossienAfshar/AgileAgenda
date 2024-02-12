@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>960</width>
-    <height>682</height>
+    <height>690</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,7 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>960</width>
-    <height>682</height>
+    <height>690</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -49,9 +49,9 @@ border-radius: 10px;
       <widget class="QGraphicsView" name="graphicsView">
        <property name="geometry">
         <rect>
-         <x>9</x>
-         <y>9</y>
-         <width>590</width>
+         <x>10</x>
+         <y>20</y>
+         <width>591</width>
          <height>430</height>
         </rect>
        </property>
@@ -69,6 +69,7 @@ border-radius: 10px;
        </property>
        <property name="styleSheet">
         <string notr="true">border-image: url(:/newBrand.png);
+border-color: rgb(96, 107, 112);
 border-radius: 15px;
 </string>
        </property>
@@ -77,9 +78,9 @@ border-radius: 15px;
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>460</y>
-         <width>590</width>
-         <height>150</height>
+         <y>465</y>
+         <width>591</width>
+         <height>155</height>
         </rect>
        </property>
        <property name="minimumSize">
@@ -130,8 +131,8 @@ color: rgb(188, 190, 136);
       <widget class="QGroupBox" name="groupBox_3">
        <property name="geometry">
         <rect>
-         <x>9</x>
-         <y>9</y>
+         <x>0</x>
+         <y>20</y>
          <width>307</width>
          <height>300</height>
         </rect>
@@ -185,8 +186,8 @@ color: rgb(17, 0, 255);</string>
       <widget class="QGroupBox" name="groupBox_4">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>330</y>
+         <x>0</x>
+         <y>340</y>
          <width>307</width>
          <height>280</height>
         </rect>
@@ -206,6 +207,19 @@ color: rgb(188, 190, 136);</string>
        <property name="title">
         <string/>
        </property>
+       <widget class="QLabel" name="labelText">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>30</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
