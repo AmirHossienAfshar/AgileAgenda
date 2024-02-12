@@ -139,6 +139,20 @@ color: rgb(188, 190, 136);</string>
         </item>
        </layout>
       </widget>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>441</width>
+         <height>301</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(96, 107, 112);
+</string>
+       </property>
+      </widget>
      </widget>
     </item>
     <item row="2" column="1">

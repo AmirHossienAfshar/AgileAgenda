@@ -13,10 +13,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -33,6 +35,7 @@ public:
     QGridLayout *gridLayout_2;
     QTextEdit *textEdit;
     QPushButton *pushButton_2;
+    QTableView *tableView;
     QGroupBox *groupBox_4;
     QPushButton *pushButton;
     QGroupBox *groupBox_2;
@@ -103,6 +106,11 @@ public:
 
         gridLayout_2->addWidget(pushButton_2, 0, 1, 1, 1);
 
+        tableView = new QTableView(groupBox);
+        tableView->setObjectName("tableView");
+        tableView->setGeometry(QRect(10, 40, 441, 301));
+        tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
+""));
 
         gridLayout->addWidget(groupBox, 0, 1, 2, 1);
 
