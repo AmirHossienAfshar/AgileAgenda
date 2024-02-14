@@ -2,6 +2,8 @@
 #include "QSql"
 #include <QtSql/QSql>
 #include <QSqlError>
+#include <QSqlDatabase>
+#include <QSqlQueryModel>
 
 #include "plannerpage.h"
 #include "ui_plannerpage.h"
@@ -12,6 +14,23 @@ PlannerPage::PlannerPage(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &PlannerPage::on_pushButton_clicked);
+
+    // no need to reOpen the sql, only using the old connection is fine!
+    //QSqlDatabase db2 = QSqlDatabase::addDatabase("QSQLITE");
+    //db2.setDatabaseName("../Calendar.db");
+
+
+    /* not possible to load the old connection in the constuctor, duo to the timing, the old conecction is not set yet here!
+    QSqlDatabase db = QSqlDatabase::database();
+
+    if (!db.isOpen())
+    {
+        qDebug() << "Database not open in the planner page!"<<db.lastError().text();
+        return;
+    }
+    else
+        qDebug() << "database opend in the planner page";
+    */
 
 }
 
@@ -27,15 +46,18 @@ void PlannerPage::on_pushButton_clicked()
 }
 
 
-void PlannerPage::on_pushButton_2_clicked()   // the to do list line edith push button.
+void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith push button.
 {
 
     QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
     if (!db.isOpen())
     {
-        qDebug() << "Database not open!";
+        qDebug() << "Database not open in the planner page : insert push button!";
         return;
     }
+    else
+        qDebug() << "database opend in the planner page : insert push button";
+
     QSqlQuery query;
     QString text;
     text = ui->textEdit->toPlainText();
@@ -59,6 +81,41 @@ void PlannerPage::on_pushButton_2_clicked()   // the to do list line edith push 
     }
 
     qDebug() << "Query:" << query.lastQuery();
+
+}
+
+
+
+void PlannerPage::on_pushButton_4_clicked()  // show To-do list
+{
+    QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+    if (!db.isOpen())
+    {
+        qDebug() << "Database not open in the planner page : show push!";
+        return;
+    }
+    else
+        qDebug() << "database opend in the planner page : show push";
+
+    QSqlQuery q;
+    //q.exec("SELECT * FROM Notes");
+    if (!q.exec("SELECT * FROM Notes")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }
+
+    // Print the results of the query
+    qDebug() << "Query results:";
+    while (q.next()) {
+        // Assuming Notes table has two columns: 'id' and 'content'
+        qDebug() << "ID:" << q.value(0).toInt() << ", Content:" << q.value(1).toString();
+    }
+
+    QSqlQueryModel *m = new QSqlQueryModel;
+    m->setQuery(std::move(q));
+
+    ui->tableView->setModel(m);
+
 
 }
 

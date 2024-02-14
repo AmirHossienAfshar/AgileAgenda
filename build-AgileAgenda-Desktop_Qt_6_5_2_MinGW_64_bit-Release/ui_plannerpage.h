@@ -32,9 +32,9 @@ public:
     QGroupBox *groupBox_3;
     QGroupBox *groupBox;
     QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_2;
     QTextEdit *textEdit;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_4;
     QTableView *tableView;
     QGroupBox *groupBox_4;
     QPushButton *pushButton;
@@ -50,7 +50,7 @@ public:
     {
         if (PlannerPage->objectName().isEmpty())
             PlannerPage->setObjectName("PlannerPage");
-        PlannerPage->resize(960, 690);
+        PlannerPage->resize(960, 758);
         PlannerPage->setStyleSheet(QString::fromUtf8("background-color: rgb(142, 148, 124);\n"
 ""));
         centralwidget = new QWidget(PlannerPage);
@@ -82,34 +82,36 @@ public:
         groupBox_5->setMaximumSize(QSize(900, 151));
         groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
 ""));
-        gridLayout_2 = new QGridLayout(groupBox_5);
-        gridLayout_2->setObjectName("gridLayout_2");
         textEdit = new QTextEdit(groupBox_5);
         textEdit->setObjectName("textEdit");
-        textEdit->setMinimumSize(QSize(331, 111));
+        textEdit->setGeometry(QRect(9, 20, 331, 111));
+        textEdit->setMinimumSize(QSize(300, 111));
         textEdit->setMaximumSize(QSize(16777215, 111));
         textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
-
-        gridLayout_2->addWidget(textEdit, 0, 0, 1, 1);
-
         pushButton_2 = new QPushButton(groupBox_5);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMinimumSize(QSize(81, 111));
+        pushButton_2->setGeometry(QRect(350, 80, 81, 55));
+        pushButton_2->setMinimumSize(QSize(81, 55));
         pushButton_2->setMaximumSize(QSize(81, 111));
         pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
-
-        gridLayout_2->addWidget(pushButton_2, 0, 1, 1, 1);
-
+        pushButton_4 = new QPushButton(groupBox_5);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(350, 20, 81, 55));
+        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
         tableView = new QTableView(groupBox);
         tableView->setObjectName("tableView");
         tableView->setGeometry(QRect(10, 40, 441, 301));
         tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
+"color: rgb(8, 8, 8);\n"
 ""));
 
         gridLayout->addWidget(groupBox, 0, 1, 2, 1);
@@ -199,6 +201,7 @@ public:
         groupBox->setTitle(QCoreApplication::translate("PlannerPage", "To-Do list", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
         pushButton_2->setText(QCoreApplication::translate("PlannerPage", "submit", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("PlannerPage", "show", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("PlannerPage", "Menu", nullptr));
         pushButton->setText(QCoreApplication::translate("PlannerPage", "go to first page", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("PlannerPage", "Notes", nullptr));

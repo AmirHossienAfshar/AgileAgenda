@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>960</width>
-    <height>690</height>
+    <height>758</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,55 +89,84 @@ color: rgb(188, 190, 136);</string>
        <property name="title">
         <string>GroupBox</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QTextEdit" name="textEdit">
-          <property name="minimumSize">
-           <size>
-            <width>331</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(50, 66, 101);
+       <widget class="QTextEdit" name="textEdit">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>20</y>
+          <width>331</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>111</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>111</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(50, 66, 101);
 border-radius: 15px;
 font: 900 16pt &quot;Maven Pro&quot;;
 color: rgb(188, 190, 136);</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="minimumSize">
-           <size>
-            <width>81</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>81</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(50, 66, 101);
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>80</y>
+          <width>81</width>
+          <height>55</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>81</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>81</width>
+          <height>111</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(50, 66, 101);
 border-radius: 15px;
 font: 900 16pt &quot;Maven Pro&quot;;
 color: rgb(188, 190, 136);</string>
-          </property>
-          <property name="text">
-           <string>submit</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+        </property>
+        <property name="text">
+         <string>submit</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>20</y>
+          <width>81</width>
+          <height>55</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+        </property>
+        <property name="text">
+         <string>show</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QTableView" name="tableView">
        <property name="geometry">
@@ -150,6 +179,7 @@ color: rgb(188, 190, 136);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(96, 107, 112);
+color: rgb(8, 8, 8);
 </string>
        </property>
       </widget>

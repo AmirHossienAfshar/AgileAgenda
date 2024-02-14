@@ -6,6 +6,7 @@
 #include <QtSql/QSql>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QSqlError>
 #include <QDebug>
 #include <QSqlError>
 
@@ -26,15 +27,15 @@ int main(int argc, char *argv[])
     mainWindow.show();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("../Calendar.db"); //
-
+    db.setDatabaseName("Callender.db"); //
+    //db.setDatabaseName("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda\\Callender.db");
     if (!db.open()) {
 
-        qDebug() << "Error: "; //Failed to open database:" << db.lastError().text();
+        qDebug() << "Error: Failed to open database:" << db.lastError().text();
         return 1;
     }
     else
-        qDebug() << "the data base is opend";
+        qDebug() << "the data base is opend in the main";
 
 
 
@@ -68,10 +69,10 @@ int main(int argc, char *argv[])
 
     }*/
 
-    qDebug() << "Data inserted successfully";
+    //qDebug() << "Data inserted successfully";
 
     // Close the database connection
-    db.close();
+    //db.close();
 
 
 
