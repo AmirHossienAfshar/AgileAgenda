@@ -94,7 +94,7 @@ color: rgb(188, 190, 136);</string>
          <rect>
           <x>9</x>
           <y>20</y>
-          <width>331</width>
+          <width>300</width>
           <height>111</height>
          </rect>
         </property>
@@ -120,7 +120,7 @@ color: rgb(188, 190, 136);</string>
        <widget class="QPushButton" name="pushButton_2">
         <property name="geometry">
          <rect>
-          <x>350</x>
+          <x>370</x>
           <y>80</y>
           <width>81</width>
           <height>55</height>
@@ -151,7 +151,7 @@ color: rgb(188, 190, 136);</string>
        <widget class="QPushButton" name="pushButton_4">
         <property name="geometry">
          <rect>
-          <x>350</x>
+          <x>370</x>
           <y>20</y>
           <width>81</width>
           <height>55</height>
@@ -165,6 +165,25 @@ color: rgb(188, 190, 136);</string>
         </property>
         <property name="text">
          <string>show</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>30</y>
+          <width>51</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+        </property>
+        <property name="text">
+         <string>delete</string>
         </property>
        </widget>
       </widget>

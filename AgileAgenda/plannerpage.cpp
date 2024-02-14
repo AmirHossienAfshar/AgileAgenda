@@ -15,6 +15,9 @@ PlannerPage::PlannerPage(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &PlannerPage::on_pushButton_clicked);
 
+    connect(ui->pushButton_5, &QPushButton::clicked, this, &PlannerPage::on_pushButton_5_clicked);
+
+
     // no need to reOpen the sql, only using the old connection is fine!
     //QSqlDatabase db2 = QSqlDatabase::addDatabase("QSQLITE");
     //db2.setDatabaseName("../Calendar.db");
@@ -102,13 +105,39 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
     m->setQuery(std::move(q));
 
     ui->tableView->setModel(m);
-
+    //delete m;
 
 }
 
 
 void PlannerPage::on_pushButton_5_clicked()
 {
+    QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
+
+    // Iterate through the selected rows
+    for (const QModelIndex& index : selectedRows)
+    {
+        // Remove the row from the model
+        ui->tableView->model()->removeRow(index.row());
+
+        // Delete the corresponding data from the database
+        QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+        if (!db.isOpen()) {
+            qDebug() << "Database not open!";
+            return;
+        }
+
+        QSqlQuery query(db);
+        query.prepare("DELETE FROM Notes WHERE RowID = ?");
+        query.addBindValue(index.row() + 1); // Adjust for 0-based row numbering
+        if (!query.exec()) {
+            qDebug() << "Error deleting row from database:" << query.lastError().text();
+        } else {
+            qDebug() << "Row deleted from database";
+        }
+    }
+
+    on_pushButton_4_clicked();
 
 
 }
