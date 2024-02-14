@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
     mainWindow.show();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("Callender.db"); //
-    //db.setDatabaseName("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda\\Callender.db");
+    //db.setDatabaseName("Callender.db"); //
+    db.setDatabaseName("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda\\Callender.db");
     if (!db.open()) {
 
         qDebug() << "Error: Failed to open database:" << db.lastError().text();

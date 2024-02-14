@@ -60,27 +60,14 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
 
     QSqlQuery query;
     QString text;
+
     text = ui->textEdit->toPlainText();
+    if (text != "")
+        query.exec("INSERT INTO Notes (NoteID,DateID,Note) VALUES (NULL,NULL,'"+text+"')");
 
-    /*
-    query.prepare("INSERT INTO Notes (Note) VALUES (?)");
-    query.addBindValue(text);
-    */
-    query.prepare("INSERT INTO Notes (Note) VALUES (:note)");
-    query.bindValue(":note", text);
-    if (!query.exec())
-    {
-        qDebug() << "Error inserting note:" << query.lastError().text();
-        // Handle the error appropriately
-    }
-    else
-    {
-        qDebug() << "Note inserted successfully";
-        // Optionally, you can clear the QLineEdit after adding the note
-        ui->textEdit->clear();
-    }
 
-    qDebug() << "Query:" << query.lastQuery();
+    ui->textEdit->clear();
+    on_pushButton_4_clicked();
 
 }
 
@@ -99,7 +86,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
     QSqlQuery q;
     //q.exec("SELECT * FROM Notes");
-    if (!q.exec("SELECT * FROM Notes")) {
+    if (!q.exec("SELECT Note FROM Notes")) {
         qDebug() << "Query failed:" << q.lastError().text();
         return;
     }
@@ -118,4 +105,35 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
 
 }
+
+
+void PlannerPage::on_pushButton_5_clicked()
+{
+
+
+}
+
+/*
+    query.prepare("INSERT INTO Notes (Note) VALUES (?)");
+    query.addBindValue(text);
+    */
+
+/*
+    query.prepare("INSERT INTO Notes (Note) VALUES (:note)");
+    query.bindValue(":note", text);
+    if (!query.exec())
+    {
+        qDebug() << "Error inserting note:" << query.lastError().text();
+        // Handle the error appropriately
+    }
+    else
+    {
+        qDebug() << "Note inserted successfully";
+        // Optionally, you can clear the QLineEdit after adding the note
+        ui->textEdit->clear();
+    }
+
+    qDebug() << "Query:" << query.lastQuery();
+    */
+
 
