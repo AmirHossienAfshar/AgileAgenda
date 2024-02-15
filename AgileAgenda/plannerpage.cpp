@@ -52,6 +52,7 @@ void PlannerPage::on_pushButton_clicked()
 void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith push button.
 {
 
+    QString what_date = "1";
     QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
     if (!db.isOpen())
     {
@@ -66,11 +67,13 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
 
     text = ui->textEdit->toPlainText();
     if (text != "")
-        query.exec("INSERT INTO Notes (NoteID,DateID,Note) VALUES (NULL,NULL,'"+text+"')");
+        query.exec("INSERT INTO Notes (NoteID,DateID,Note) VALUES (NULL,'"+what_date+"','"+text+"')");
 
 
     ui->textEdit->clear();
     on_pushButton_4_clicked();
+    updateNoteIDs(db, 1);
+
 
 }
 
@@ -89,17 +92,19 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
     QSqlQuery q;
     //q.exec("SELECT * FROM Notes");
-    if (!q.exec("SELECT Note FROM Notes")) {
+    if (!q.exec("SELECT Note FROM Notes WHERE DateID = 1")) { ////////////////////////////////////////////////////////////////////////////
         qDebug() << "Query failed:" << q.lastError().text();
         return;
     }
 
+    /*
     // Print the results of the query
     qDebug() << "Query results:";
     while (q.next()) {
         // Assuming Notes table has two columns: 'id' and 'content'
         qDebug() << "ID:" << q.value(0).toInt() << ", Content:" << q.value(1).toString();
     }
+    */
 
     QSqlQueryModel *m = new QSqlQueryModel;
     m->setQuery(std::move(q));
@@ -107,62 +112,90 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
     ui->tableView->setModel(m);
     //delete m;
 
+    updateNoteIDs(db, 1);
+
+
 }
 
 
-void PlannerPage::on_pushButton_5_clicked()
+void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
 {
+    // Get the selected rows from the table view
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
 
+    // Start a transaction to ensure atomicity
+    QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+    if (!db.isOpen()) {
+        qDebug() << "Database not open!";
+        return;
+    }
+    db.transaction();
+
+
     // Iterate through the selected rows
-    for (const QModelIndex& index : selectedRows)
+    for (auto it = selectedRows.begin(); it != selectedRows.end(); ++it)
     {
-        // Remove the row from the model
-        ui->tableView->model()->removeRow(index.row());
+        // Get the row index
+        int row = it->row();
+
 
         // Delete the corresponding data from the database
-        QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
-        if (!db.isOpen()) {
-            qDebug() << "Database not open!";
-            return;
-        }
+        QSqlQuery query;
+        row++;
+        qDebug() << row;
+        query.exec("DELETE FROM Notes WHERE NoteID = '" + QString::number(row) + "'");
 
-        QSqlQuery query(db);
-        query.prepare("DELETE FROM Notes WHERE RowID = ?");
-        query.addBindValue(index.row() + 1); // Adjust for 0-based row numbering
+
+        /*query.prepare("DELETE FROM Notes WHERE RowID = ?");
+        query.addBindValue(row + 1); // Adjust for 0-based row numbering
         if (!query.exec()) {
             qDebug() << "Error deleting row from database:" << query.lastError().text();
-        } else {
-            qDebug() << "Row deleted from database";
-        }
+            db.rollback(); // Rollback the transaction in case of error
+            return;
+        }*/
+
+        qDebug() << "Row deleted from database";
+
+        // Remove the row from the model
+        ui->tableView->model()->removeRow(row);
     }
 
-    on_pushButton_4_clicked();
+    // Commit the transaction
+    if (!db.commit()) {
+        qDebug() << "Error committing transaction:" << db.lastError().text();
+    }
 
+    on_pushButton_4_clicked();  // Update the view (optional)
+
+
+    /*QSqlQuery query;
+    auto it = selectedRows.begin();
+    int row = it->row();
+    row++;
+    qDebug() << row;
+    query.exec("DELETE FROM Notes WHERE RowID = '" + QString::number(row) + "'");
+    */
+
+    updateNoteIDs(db, 1);
 
 }
 
-/*
-    query.prepare("INSERT INTO Notes (Note) VALUES (?)");
-    query.addBindValue(text);
-    */
+void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID) {
+    QSqlQuery updateQuery(db);
 
-/*
-    query.prepare("INSERT INTO Notes (Note) VALUES (:note)");
-    query.bindValue(":note", text);
-    if (!query.exec())
-    {
-        qDebug() << "Error inserting note:" << query.lastError().text();
-        // Handle the error appropriately
+    // Update the NoteID column for rows with the specified DateID
+    /*
+    if (!updateQuery.exec(QString("UPDATE Notes SET NoteID = (SELECT COUNT(*) FROM Notes WHERE DateID = %1 AND rowid <= Notes.rowid) WHERE DateID = %1").arg(dateID))) {
+        qDebug() << "Error updating NoteID column for DateID" << dateID << ":" << updateQuery.lastError().text();
+    }
+    */
+    QString queryStr = QString("UPDATE Notes SET NoteID = (SELECT COUNT(*) FROM Notes AS n WHERE n.DateID = Notes.DateID AND n.rowid <= Notes.rowid) WHERE DateID = %1").arg(dateID);
+    if (!updateQuery.exec(queryStr)) {
+        qDebug() << "Error updating NoteID column for DateID" << dateID << ":" << updateQuery.lastError().text();
     }
     else
-    {
-        qDebug() << "Note inserted successfully";
-        // Optionally, you can clear the QLineEdit after adding the note
-        ui->textEdit->clear();
-    }
+        qDebug() <<"updeted nicly!";
+}
 
-    qDebug() << "Query:" << query.lastQuery();
-    */
 
 

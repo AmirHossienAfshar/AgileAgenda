@@ -1,6 +1,7 @@
 #ifndef PLANNERPAGE_H
 #define PLANNERPAGE_H
 
+#include "qsqldatabase.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -13,6 +14,8 @@ class PlannerPage : public QMainWindow
 
 public:
     explicit PlannerPage(QWidget *parent = nullptr);
+    void updateNoteIDs(QSqlDatabase& db, int dateID); ////////////////////////////////////////////////////////////
+
     ~PlannerPage();
 
 signals:
@@ -26,6 +29,7 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_5_clicked();
+
 
 private:
     Ui::PlannerPage *ui;
