@@ -31,19 +31,19 @@ public:
     QGridLayout *gridLayout;
     QGroupBox *groupBox_3;
     QGroupBox *groupBox;
+    QTableView *tableView;
+    QGroupBox *groupBox_2;
     QGroupBox *groupBox_5;
+    QGroupBox *groupBox_4;
+    QGridLayout *gridLayout_2;
     QTextEdit *textEdit;
-    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_7;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
-    QTableView *tableView;
-    QGroupBox *groupBox_4;
     QPushButton *pushButton;
-    QGroupBox *groupBox_2;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_4;
-    QTextEdit *textEdit_2;
-    QPushButton *pushButton_3;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -76,114 +76,136 @@ public:
 "background-color: rgb(89, 123, 110);\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
-        groupBox_5 = new QGroupBox(groupBox);
-        groupBox_5->setObjectName("groupBox_5");
-        groupBox_5->setGeometry(QRect(10, 350, 441, 151));
-        groupBox_5->setMinimumSize(QSize(441, 151));
-        groupBox_5->setMaximumSize(QSize(900, 151));
-        groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
-""));
-        textEdit = new QTextEdit(groupBox_5);
-        textEdit->setObjectName("textEdit");
-        textEdit->setGeometry(QRect(9, 20, 300, 111));
-        textEdit->setMinimumSize(QSize(300, 111));
-        textEdit->setMaximumSize(QSize(16777215, 111));
-        textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
-"border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
-"color: rgb(188, 190, 136);"));
-        pushButton_2 = new QPushButton(groupBox_5);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(370, 80, 81, 55));
-        pushButton_2->setMinimumSize(QSize(81, 55));
-        pushButton_2->setMaximumSize(QSize(81, 111));
-        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
-"border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
-"color: rgb(188, 190, 136);"));
-        pushButton_4 = new QPushButton(groupBox_5);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(370, 20, 81, 55));
-        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
-"border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
-"color: rgb(188, 190, 136);"));
-        pushButton_5 = new QPushButton(groupBox_5);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(310, 30, 51, 91));
-        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
-"border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
-"color: rgb(188, 190, 136);"));
         tableView = new QTableView(groupBox);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(10, 40, 441, 301));
+        tableView->setGeometry(QRect(10, 40, 441, 501));
         tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
 "color: rgb(8, 8, 8);\n"
 ""));
 
         gridLayout->addWidget(groupBox, 0, 1, 2, 1);
 
-        groupBox_4 = new QGroupBox(centralwidget);
-        groupBox_4->setObjectName("groupBox_4");
-        groupBox_4->setMinimumSize(QSize(468, 104));
-        groupBox_4->setMaximumSize(QSize(16777215, 170));
-        groupBox_4->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
-"background-color: rgb(96, 107, 112);\n"
+        groupBox_2 = new QGroupBox(centralwidget);
+        groupBox_2->setObjectName("groupBox_2");
+        groupBox_2->setMinimumSize(QSize(450, 100));
+        groupBox_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
+        groupBox_5 = new QGroupBox(groupBox_2);
+        groupBox_5->setObjectName("groupBox_5");
+        groupBox_5->setGeometry(QRect(10, 120, 441, 151));
+        groupBox_5->setMinimumSize(QSize(441, 151));
+        groupBox_5->setMaximumSize(QSize(900, 151));
+        groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
+""));
+
+        gridLayout->addWidget(groupBox_2, 1, 0, 1, 1);
+
+        groupBox_4 = new QGroupBox(centralwidget);
+        groupBox_4->setObjectName("groupBox_4");
+        groupBox_4->setMinimumSize(QSize(931, 121));
+        groupBox_4->setMaximumSize(QSize(16777215, 121));
+        groupBox_4->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
+"background-color: rgb(96, 107, 112);\n"
+"font: 900 10pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+        gridLayout_2 = new QGridLayout(groupBox_4);
+        gridLayout_2->setObjectName("gridLayout_2");
+        textEdit = new QTextEdit(groupBox_4);
+        textEdit->setObjectName("textEdit");
+        textEdit->setMinimumSize(QSize(300, 50));
+        textEdit->setMaximumSize(QSize(16777215, 91));
+        textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+
+        gridLayout_2->addWidget(textEdit, 0, 0, 2, 1);
+
+        pushButton_3 = new QPushButton(groupBox_4);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setMinimumSize(QSize(91, 41));
+        pushButton_3->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 10pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+
+        gridLayout_2->addWidget(pushButton_3, 0, 1, 1, 1);
+
+        pushButton_7 = new QPushButton(groupBox_4);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setMinimumSize(QSize(51, 91));
+        pushButton_7->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_7->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 11pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+
+        gridLayout_2->addWidget(pushButton_7, 0, 2, 2, 1);
+
+        pushButton_4 = new QPushButton(groupBox_4);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setMinimumSize(QSize(91, 41));
+        pushButton_4->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 10pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+
+        gridLayout_2->addWidget(pushButton_4, 0, 3, 1, 1);
+
+        pushButton_5 = new QPushButton(groupBox_4);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setMinimumSize(QSize(51, 91));
+        pushButton_5->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 11pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+
+        gridLayout_2->addWidget(pushButton_5, 0, 4, 2, 1);
+
         pushButton = new QPushButton(groupBox_4);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(40, 40, 181, 91));
+        pushButton->setMinimumSize(QSize(81, 91));
+        pushButton->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton->setStyleSheet(QString::fromUtf8("border-color: rgb(114, 152, 255);\n"
+"font: 900 11pt \"Maven Pro\";\n"
 "background-color: rgb(191, 255, 73);\n"
 ""));
         pushButton->setCheckable(false);
         pushButton->setAutoDefault(false);
         pushButton->setFlat(false);
 
-        gridLayout->addWidget(groupBox_4, 2, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton, 0, 5, 2, 1);
 
-        groupBox_2 = new QGroupBox(centralwidget);
-        groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setMinimumSize(QSize(450, 521));
-        groupBox_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+        pushButton_6 = new QPushButton(groupBox_4);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setMinimumSize(QSize(91, 41));
+        pushButton_6->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_6->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
-"color: rgb(188, 190, 136);"));
-        groupBox_6 = new QGroupBox(groupBox_2);
-        groupBox_6->setObjectName("groupBox_6");
-        groupBox_6->setGeometry(QRect(10, 330, 441, 151));
-        groupBox_6->setMinimumSize(QSize(441, 151));
-        groupBox_6->setMaximumSize(QSize(900, 151));
-        groupBox_6->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
-""));
-        gridLayout_4 = new QGridLayout(groupBox_6);
-        gridLayout_4->setObjectName("gridLayout_4");
-        textEdit_2 = new QTextEdit(groupBox_6);
-        textEdit_2->setObjectName("textEdit_2");
-        textEdit_2->setMinimumSize(QSize(331, 111));
-        textEdit_2->setMaximumSize(QSize(16777215, 111));
-        textEdit_2->setStyleSheet(QString::fromUtf8("background-color: rgb(89, 123, 110);\n"
-"border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
+"font: 900 10pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
 
-        gridLayout_4->addWidget(textEdit_2, 0, 0, 1, 1);
+        gridLayout_2->addWidget(pushButton_6, 1, 1, 1, 1);
 
-        pushButton_3 = new QPushButton(groupBox_6);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setMinimumSize(QSize(81, 111));
-        pushButton_3->setMaximumSize(QSize(81, 111));
-        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(89, 123, 110);\n"
+        pushButton_2 = new QPushButton(groupBox_4);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setMinimumSize(QSize(91, 41));
+        pushButton_2->setMaximumSize(QSize(150, 111));
+        pushButton_2->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
-"font: 900 16pt \"Maven Pro\";\n"
+"font: 900 10pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
 
-        gridLayout_4->addWidget(pushButton_3, 0, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton_2, 1, 3, 1, 1);
 
 
-        gridLayout->addWidget(groupBox_2, 1, 0, 2, 1);
+        gridLayout->addWidget(groupBox_4, 2, 0, 1, 2);
 
         PlannerPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PlannerPage);
@@ -207,15 +229,18 @@ public:
         PlannerPage->setWindowTitle(QCoreApplication::translate("PlannerPage", "MainWindow", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("PlannerPage", "Callender", nullptr));
         groupBox->setTitle(QCoreApplication::translate("PlannerPage", "To-Do list", nullptr));
-        groupBox_5->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("PlannerPage", "submit", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("PlannerPage", "show", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("PlannerPage", "delete", nullptr));
-        groupBox_4->setTitle(QCoreApplication::translate("PlannerPage", "Menu", nullptr));
-        pushButton->setText(QCoreApplication::translate("PlannerPage", "go to first page", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("PlannerPage", "Notes", nullptr));
-        groupBox_6->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("PlannerPage", "submit", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("PlannerPage", "Menu", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("PlannerPage", "show To-do", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("PlannerPage", "delete \n"
+"To-do", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("PlannerPage", "show Notes", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("PlannerPage", "delete \n"
+"Note", nullptr));
+        pushButton->setText(QCoreApplication::translate("PlannerPage", "first page", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("PlannerPage", "Add to To-do", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("PlannerPage", "Add to Notes", nullptr));
     } // retranslateUi
 
 };

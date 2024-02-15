@@ -61,139 +61,13 @@ color: rgb(188, 190, 136);</string>
       <property name="title">
        <string>To-Do list</string>
       </property>
-      <widget class="QGroupBox" name="groupBox_5">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>350</y>
-         <width>441</width>
-         <height>151</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>441</width>
-         <height>151</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>900</width>
-         <height>151</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(96, 107, 112);
-</string>
-       </property>
-       <property name="title">
-        <string>GroupBox</string>
-       </property>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="geometry">
-         <rect>
-          <x>9</x>
-          <y>20</y>
-          <width>300</width>
-          <height>111</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>111</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>111</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(50, 66, 101);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>80</y>
-          <width>81</width>
-          <height>55</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>81</width>
-          <height>55</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>81</width>
-          <height>111</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(50, 66, 101);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-        </property>
-        <property name="text">
-         <string>submit</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>20</y>
-          <width>81</width>
-          <height>55</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(50, 66, 101);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-        </property>
-        <property name="text">
-         <string>show</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>30</y>
-          <width>51</width>
-          <height>91</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(50, 66, 101);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-        </property>
-        <property name="text">
-         <string>delete</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QTableView" name="tableView">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>40</y>
          <width>441</width>
-         <height>301</height>
+         <height>501</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -204,67 +78,12 @@ color: rgb(8, 8, 8);
       </widget>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="minimumSize">
-       <size>
-        <width>468</width>
-        <height>104</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>170</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-radius: 15px;
-background-color: rgb(96, 107, 112);
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-      </property>
-      <property name="title">
-       <string>Menu</string>
-      </property>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>40</y>
-         <width>181</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(114, 152, 255);
-background-color: rgb(191, 255, 73);
-</string>
-       </property>
-       <property name="text">
-        <string>go to first page</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-       <property name="default">
-        <bool>true</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="1" column="0" rowspan="2">
+    <item row="1" column="0">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="minimumSize">
        <size>
         <width>450</width>
-        <height>521</height>
+        <height>100</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -276,11 +95,11 @@ color: rgb(188, 190, 136);</string>
       <property name="title">
        <string>Notes</string>
       </property>
-      <widget class="QGroupBox" name="groupBox_6">
+      <widget class="QGroupBox" name="groupBox_5">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>330</y>
+         <y>120</y>
          <width>441</width>
          <height>151</height>
         </rect>
@@ -304,56 +123,230 @@ color: rgb(188, 190, 136);</string>
        <property name="title">
         <string>GroupBox</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="QTextEdit" name="textEdit_2">
-          <property name="minimumSize">
-           <size>
-            <width>331</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(89, 123, 110);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="minimumSize">
-           <size>
-            <width>81</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>81</width>
-            <height>111</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(89, 123, 110);
-border-radius: 15px;
-font: 900 16pt &quot;Maven Pro&quot;;
-color: rgb(188, 190, 136);</string>
-          </property>
-          <property name="text">
-           <string>submit</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="minimumSize">
+       <size>
+        <width>931</width>
+        <height>121</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>121</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 15px;
+background-color: rgb(96, 107, 112);
+font: 900 10pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+      </property>
+      <property name="title">
+       <string>Menu</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0" rowspan="2">
+        <widget class="QTextEdit" name="textEdit">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>91</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="minimumSize">
+          <size>
+           <width>91</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 10pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>show To-do</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2" rowspan="2">
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="minimumSize">
+          <size>
+           <width>51</width>
+           <height>91</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 11pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>delete 
+To-do</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="minimumSize">
+          <size>
+           <width>91</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 10pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>show Notes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4" rowspan="2">
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="minimumSize">
+          <size>
+           <width>51</width>
+           <height>91</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 11pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>delete 
+Note</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5" rowspan="2">
+        <widget class="QPushButton" name="pushButton">
+         <property name="minimumSize">
+          <size>
+           <width>81</width>
+           <height>91</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-color: rgb(114, 152, 255);
+font: 900 11pt &quot;Maven Pro&quot;;
+background-color: rgb(191, 255, 73);
+</string>
+         </property>
+         <property name="text">
+          <string>first page</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="minimumSize">
+          <size>
+           <width>91</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 10pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>Add to To-do</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="minimumSize">
+          <size>
+           <width>91</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>111</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 10pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+         </property>
+         <property name="text">
+          <string>Add to Notes</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
