@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "currentday.h"
+//#include "currentday.h"
 #include <QDate>
 #include <QDebug>
 
@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     QDate currentDate = QDate::currentDate();
     QString dateString = currentDate.toString("yyyy-MM-dd"); // Adjust the format as needed
 
+    MyDate = dateString;
     ui->labelText->setText(dateString);
 
 
@@ -37,6 +38,7 @@ void MainWindow::on_pushButton_clicked()
     this->hide();
     page2->show();
     */
+
     emit showCurrentDayPage();
     this->hide();
 }
@@ -48,4 +50,15 @@ void MainWindow::on_pushButton_2_clicked()
     this->hide();
 
 }
+
+void MainWindow::setMyDate(const QString& myVariable) {
+    // Set the value of the variable
+    MyDate = myVariable;
+}
+
+QString MainWindow::getMyDate() const {
+    // Return the value of the variable
+    return MyDate;
+}
+
 

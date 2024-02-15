@@ -1,7 +1,10 @@
+
 #ifndef PLANNERPAGE_H
 #define PLANNERPAGE_H
 
 #include "qsqldatabase.h"
+#include "mainwindow.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -33,6 +36,8 @@ private slots:
 
 private:
     Ui::PlannerPage *ui;
+    const MainWindow *m_mainWindow; // Const pointer to MainWindow instance ////////////////////////////////////////this is added
+
 };
 
 #endif // PLANNERPAGE_H

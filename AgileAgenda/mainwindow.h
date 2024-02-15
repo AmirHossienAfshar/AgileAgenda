@@ -1,5 +1,5 @@
 #include "currentday.h"
-#include "plannerpage.h"
+//#include "plannerpage.h"
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
@@ -17,9 +17,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QString getMyDate() const; // Change return type to QString
+    void setMyDate(const QString& myVariable); // Change parameter type to QString
+
 
 signals:
-    void showCurrentDayPage(); // Add this line
+    void showCurrentDayPage();
     void showPlannerPage();
 
 private slots:
@@ -29,6 +32,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
+    QString MyDate;
 };
 #endif // MAINWINDOW_H

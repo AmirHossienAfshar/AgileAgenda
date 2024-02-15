@@ -7,6 +7,7 @@
 
 #include "plannerpage.h"
 #include "ui_plannerpage.h"
+//#include "mainwindow.h"
 
 PlannerPage::PlannerPage(QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +17,17 @@ PlannerPage::PlannerPage(QWidget *parent) :
     connect(ui->pushButton, &QPushButton::clicked, this, &PlannerPage::on_pushButton_clicked);
 
     connect(ui->pushButton_5, &QPushButton::clicked, this, &PlannerPage::on_pushButton_5_clicked);
+
+    /*QString str = m_mainWindow->getMyDate();
+    ui->label->setText(str);*/
+
+    if (m_mainWindow) {
+        QString str = m_mainWindow->getMyDate();
+        ui->label->setText(str);
+    } else {
+        qDebug() << "m_mainWindow is null!";
+    }
+
 
 
     // no need to reOpen the sql, only using the old connection is fine!
@@ -73,6 +85,9 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
     ui->textEdit->clear();
     on_pushButton_4_clicked();
     updateNoteIDs(db, 1);
+
+    QString str;
+    //str = MainWindow->getMyDate();
 
 
 }
@@ -176,19 +191,16 @@ void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
     query.exec("DELETE FROM Notes WHERE RowID = '" + QString::number(row) + "'");
     */
 
-    updateNoteIDs(db, 1);
+    updateNoteIDs(db, 1); // this line is not nessesury since the view push button is clicked on earlier before!!
 
 }
 
-void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID) {
+void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID)
+{
     QSqlQuery updateQuery(db);
 
     // Update the NoteID column for rows with the specified DateID
-    /*
-    if (!updateQuery.exec(QString("UPDATE Notes SET NoteID = (SELECT COUNT(*) FROM Notes WHERE DateID = %1 AND rowid <= Notes.rowid) WHERE DateID = %1").arg(dateID))) {
-        qDebug() << "Error updating NoteID column for DateID" << dateID << ":" << updateQuery.lastError().text();
-    }
-    */
+
     QString queryStr = QString("UPDATE Notes SET NoteID = (SELECT COUNT(*) FROM Notes AS n WHERE n.DateID = Notes.DateID AND n.rowid <= Notes.rowid) WHERE DateID = %1").arg(dateID);
     if (!updateQuery.exec(queryStr)) {
         qDebug() << "Error updating NoteID column for DateID" << dateID << ":" << updateQuery.lastError().text();

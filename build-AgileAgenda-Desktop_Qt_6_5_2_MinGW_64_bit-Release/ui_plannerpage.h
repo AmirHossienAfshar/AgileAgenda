@@ -14,6 +14,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -30,6 +31,7 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QGroupBox *groupBox_3;
+    QLabel *label;
     QGroupBox *groupBox;
     QTableView *tableView;
     QGroupBox *groupBox_2;
@@ -66,6 +68,9 @@ public:
 "background-color: rgb(96, 107, 112);\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
+        label = new QLabel(groupBox_3);
+        label->setObjectName("label");
+        label->setGeometry(QRect(100, 80, 221, 16));
 
         gridLayout->addWidget(groupBox_3, 0, 0, 1, 1);
 
@@ -228,6 +233,7 @@ public:
     {
         PlannerPage->setWindowTitle(QCoreApplication::translate("PlannerPage", "MainWindow", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("PlannerPage", "Callender", nullptr));
+        label->setText(QCoreApplication::translate("PlannerPage", "TextLabel", nullptr));
         groupBox->setTitle(QCoreApplication::translate("PlannerPage", "To-Do list", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("PlannerPage", "Notes", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
