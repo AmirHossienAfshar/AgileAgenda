@@ -35,25 +35,6 @@ PlannerPage::PlannerPage(QWidget *parent) :
     QString str1 = loadMyDateFromFile();
     ui->label->setText(str1);
 
-
-
-    // no need to reOpen the sql, only using the old connection is fine!
-    //QSqlDatabase db2 = QSqlDatabase::addDatabase("QSQLITE");
-    //db2.setDatabaseName("../Calendar.db");
-
-
-    /* not possible to load the old connection in the constuctor, duo to the timing, the old conecction is not set yet here!
-    QSqlDatabase db = QSqlDatabase::database();
-
-    if (!db.isOpen())
-    {
-        qDebug() << "Database not open in the planner page!"<<db.lastError().text();
-        return;
-    }
-    else
-        qDebug() << "database opend in the planner page";
-    */
-
 }
 
 PlannerPage::~PlannerPage()
@@ -61,7 +42,7 @@ PlannerPage::~PlannerPage()
     delete ui;
 }
 
-void PlannerPage::on_pushButton_clicked()
+void PlannerPage::on_pushButton_clicked() // back to main window
 {
     emit showMainWindow();
     this->hide();
@@ -71,7 +52,6 @@ void PlannerPage::on_pushButton_clicked()
 void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith push button.
 {
 
-    QString what_date = "1";
     QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
     if (!db.isOpen())
     {
@@ -83,15 +63,67 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
 
     QSqlQuery query;
     QString text;
+    QString str1 = loadMyDateFromFile();
+
+    QStringList components = str1.split("-");
+    int year, month, day;
+
+    if (components.size() == 3)
+    {
+        // Extract year, month, and day
+        year = components[0].toInt();
+        month = components[1].toInt();
+        day = components[2].toInt();
+
+        // Print the parsed components
+
+        qDebug() << "Year:" << year;
+        qDebug() << "Month:" << month;
+        qDebug() << "Day:" << day;
+
+    }
+    else
+    {
+        qDebug() << "Invalid date string format!";
+    }
+
+    day = 17;
+
+
+    /*QSqlQuery q;
+    if (!q.exec("SELECT DateID FROM calender WHERE GregorianYear ='"+QString::number(year)+"'and GregorianMonth ='"+QString::number(month)+"' and GregorianDay = "+QString::number(day)+""  )) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }*/
+    QSqlQuery q;
+    QString queryString = "SELECT DateID FROM calender WHERE GregorianYear = '" + QString::number(year) + "' AND GregorianMonth = '" + QString::number(month) + "' AND GregorianDay = '" + QString::number(day) + "'";
+    qDebug() << "Query: " << queryString;
+    if (!q.exec(queryString)) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }
+
+    QString what_date = "1";
+
+    //QString what_date;
+    if (q.next()) {
+        what_date = q.value(0).toString();
+    } else {
+        qDebug() << "No matching date found.";
+        return;
+    }
+
+    qDebug() << what_date <<"///////////////////////////////////////////////////////////////////////////////////";
+
 
     text = ui->textEdit->toPlainText();
     if (text != "")
         query.exec("INSERT INTO Notes (NoteID,DateID,Note) VALUES (NULL,'"+what_date+"','"+text+"')");
-
+        /// important: the problem with null values are handled in the updateNoteID push button.
 
     ui->textEdit->clear();
     on_pushButton_4_clicked();
-    updateNoteIDs(db, 1);
+    updateNoteIDs(db, what_date.toInt());
 
     //QString str;
     //str = MainWindow->getMyDate();
@@ -112,9 +144,55 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
     else
         qDebug() << "database opend in the planner page : show push";
 
+    QString str1 = loadMyDateFromFile();
+
+    QStringList components = str1.split("-");
+    int year, month, day;
+
+    if (components.size() == 3)
+    {
+        // Extract year, month, and day
+        year = components[0].toInt();
+        month = components[1].toInt();
+        day = components[2].toInt();
+
+        // Print the parsed components
+
+        qDebug() << "Year:" << year;
+        qDebug() << "Month:" << month;
+
+    }
+    else
+    {
+        qDebug() << "Invalid date string format!";
+    }
+
+    day = 17;
+    qDebug() << "Day:" << day;
+
+
+    QSqlQuery q2;
+    QString queryString = "SELECT DateID FROM calender WHERE GregorianYear = '" + QString::number(year) + "' AND GregorianMonth = '" + QString::number(month) + "' AND GregorianDay = '" + QString::number(day) + "'";
+    qDebug() << "Query: " << queryString;
+    if (!q2.exec(queryString)) {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+
+    QString what_date = "1";
+
+    //QString what_date;
+    if (q2.next()) {
+        what_date = q2.value(0).toString();
+    } else {
+        qDebug() << "No matching date found.";
+        return;
+    }
+
+
     QSqlQuery q;
     //q.exec("SELECT * FROM Notes");
-    if (!q.exec("SELECT Note FROM Notes WHERE DateID = 1")) { ////////////////////////////////////////////////////////////////////////////
+    if (!q.exec("SELECT Note FROM Notes WHERE DateID = '" + what_date + "'")) { ////////////////////////////////////////////////////////////////////////////
         qDebug() << "Query failed:" << q.lastError().text();
         return;
     }
@@ -128,13 +206,15 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
     }
     */
 
+
+
     QSqlQueryModel *m = new QSqlQueryModel;
     m->setQuery(std::move(q));
 
     ui->tableView->setModel(m);
     //delete m;
 
-    updateNoteIDs(db, 1);
+    updateNoteIDs(db, what_date.toInt());
 
 
 }
