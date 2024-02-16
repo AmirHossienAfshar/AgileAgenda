@@ -77,10 +77,10 @@ color: rgb(188, 190, 136);</string>
       <widget class="QTableView" name="tableView">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>40</y>
-         <width>441</width>
-         <height>501</height>
+         <width>421</width>
+         <height>511</height>
         </rect>
        </property>
        <property name="styleSheet">

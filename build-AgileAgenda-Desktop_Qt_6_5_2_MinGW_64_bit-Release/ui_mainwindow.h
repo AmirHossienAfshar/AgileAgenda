@@ -95,12 +95,16 @@ public:
 "color: rgb(188, 190, 136);"));
         pushButton = new QPushButton(groupBox_3);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(60, 110, 161, 24));
+        pushButton->setGeometry(QRect(40, 110, 231, 51));
         pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
-"color: rgb(17, 0, 255);"));
+"color:  rgb(50, 66, 101);\n"
+""));
         pushButton_2 = new QPushButton(groupBox_3);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(60, 170, 161, 51));
+        pushButton_2->setGeometry(QRect(40, 180, 231, 51));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
+"color:  rgb(50, 66, 101);\n"
+""));
         groupBox_4 = new QGroupBox(groupBox_2);
         groupBox_4->setObjectName("groupBox_4");
         groupBox_4->setGeometry(QRect(0, 340, 307, 280));
@@ -136,8 +140,8 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Developed By: Amir Hossein Afshar", nullptr));
         groupBox_2->setTitle(QString());
         groupBox_3->setTitle(QString());
-        pushButton->setText(QCoreApplication::translate("MainWindow", "current Day", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Choose Day", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Current Day Page", nullptr));
         groupBox_4->setTitle(QString());
         labelText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi

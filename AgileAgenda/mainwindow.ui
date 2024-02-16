@@ -155,31 +155,37 @@ color: rgb(188, 190, 136);</string>
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>40</x>
           <y>110</y>
-          <width>161</width>
-          <height>24</height>
+          <width>231</width>
+          <height>51</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(188, 190, 136);
-color: rgb(17, 0, 255);</string>
+color:  rgb(50, 66, 101);
+</string>
         </property>
         <property name="text">
-         <string>current Day</string>
+         <string>Choose Day</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_2">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>170</y>
-          <width>161</width>
+          <x>40</x>
+          <y>180</y>
+          <width>231</width>
           <height>51</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(188, 190, 136);
+color:  rgb(50, 66, 101);
+</string>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Current Day Page</string>
         </property>
        </widget>
       </widget>

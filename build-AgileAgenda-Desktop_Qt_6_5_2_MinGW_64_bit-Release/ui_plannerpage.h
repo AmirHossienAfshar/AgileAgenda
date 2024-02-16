@@ -83,7 +83,7 @@ public:
 "color: rgb(188, 190, 136);"));
         tableView = new QTableView(groupBox);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(10, 40, 441, 501));
+        tableView->setGeometry(QRect(20, 40, 421, 511));
         tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
 "color: rgb(8, 8, 8);\n"
 ""));

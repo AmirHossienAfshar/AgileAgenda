@@ -4,7 +4,8 @@
 #include <QSqlError>
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
-
+#include <QFile>
+#include <QTextStream>
 #include "plannerpage.h"
 #include "ui_plannerpage.h"
 //#include "mainwindow.h"
@@ -21,12 +22,18 @@ PlannerPage::PlannerPage(QWidget *parent) :
     /*QString str = m_mainWindow->getMyDate();
     ui->label->setText(str);*/
 
+
+    /* old method of using a variable between two classes.
     if (m_mainWindow) {
         QString str = m_mainWindow->getMyDate();
         ui->label->setText(str);
     } else {
         qDebug() << "m_mainWindow is null!";
     }
+    */
+
+    QString str1 = loadMyDateFromFile();
+    ui->label->setText(str1);
 
 
 
@@ -86,7 +93,7 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
     on_pushButton_4_clicked();
     updateNoteIDs(db, 1);
 
-    QString str;
+    //QString str;
     //str = MainWindow->getMyDate();
 
 
@@ -207,6 +214,21 @@ void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID)
     }
     else
         qDebug() <<"updeted nicly!";
+}
+
+QString PlannerPage::loadMyDateFromFile()
+{
+    QString myDate;
+    // Open the text file in read mode
+    QFile file("mydate.txt"); ///////////////////////////////////////////// as an intersting fact, this works fine but not the other one!
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        myDate = in.readAll(); // Read myDate from the file
+        file.close();
+    } else {
+        qDebug() << "Failed to open file for reading";
+    }
+    return myDate;
 }
 
 
