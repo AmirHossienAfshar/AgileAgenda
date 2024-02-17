@@ -33,6 +33,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void saveMyDateToFile(const QString &myDate);
+
+
+
 private:
     Ui::CurrentDay *ui;
 };

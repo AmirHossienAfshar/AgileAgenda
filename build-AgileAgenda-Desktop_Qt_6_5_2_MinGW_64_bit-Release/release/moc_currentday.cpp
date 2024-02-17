@@ -48,11 +48,13 @@ static constexpr auto qt_meta_stringdata_CLASSCurrentDayENDCLASS = QtMocHelpers:
     "QItemSelection",
     "selected",
     "deselected",
-    "on_pushButton_3_clicked"
+    "on_pushButton_3_clicked",
+    "saveMyDateToFile",
+    "myDate"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSCurrentDayENDCLASS_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[26];
     char stringdata0[11];
     char stringdata1[15];
     char stringdata2[1];
@@ -64,6 +66,8 @@ struct qt_meta_stringdata_CLASSCurrentDayENDCLASS_t {
     char stringdata8[9];
     char stringdata9[11];
     char stringdata10[24];
+    char stringdata11[17];
+    char stringdata12[7];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSCurrentDayENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -79,7 +83,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSCurrentDayENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(108, 14),  // "QItemSelection"
         QT_MOC_LITERAL(123, 8),  // "selected"
         QT_MOC_LITERAL(132, 10),  // "deselected"
-        QT_MOC_LITERAL(143, 23)   // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(143, 23),  // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(167, 16),  // "saveMyDateToFile"
+        QT_MOC_LITERAL(184, 6)   // "myDate"
     },
     "CurrentDay",
     "showMainWindow",
@@ -91,7 +97,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSCurrentDayENDCLASS_t qt_meta_st
     "QItemSelection",
     "selected",
     "deselected",
-    "on_pushButton_3_clicked"
+    "on_pushButton_3_clicked",
+    "saveMyDateToFile",
+    "myDate"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -103,7 +111,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCurrentDayENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -111,14 +119,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCurrentDayENDCLASS[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    1 /* Public */,
-       3,    0,   51,    2, 0x06,    2 /* Public */,
+       1,    0,   56,    2, 0x06,    1 /* Public */,
+       3,    0,   57,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   52,    2, 0x08,    3 /* Private */,
-       5,    0,   53,    2, 0x08,    4 /* Private */,
-       6,    2,   54,    2, 0x08,    5 /* Private */,
-      10,    0,   59,    2, 0x08,    8 /* Private */,
+       4,    0,   58,    2, 0x08,    3 /* Private */,
+       5,    0,   59,    2, 0x08,    4 /* Private */,
+       6,    2,   60,    2, 0x08,    5 /* Private */,
+      10,    0,   65,    2, 0x08,    8 /* Private */,
+      11,    1,   66,    2, 0x08,    9 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -129,6 +138,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCurrentDayENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 7, 0x80000000 | 7,    8,    9,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   12,
 
        0        // eod
 };
@@ -155,7 +165,10 @@ Q_CONSTINIT const QMetaObject CurrentDay::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QItemSelection &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QItemSelection &, std::false_type>,
         // method 'on_pushButton_3_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'saveMyDateToFile'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
     >,
     nullptr
 } };
@@ -172,6 +185,7 @@ void CurrentDay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->on_pushButton_2_clicked(); break;
         case 4: _t->onSelectionChanged((*reinterpret_cast< std::add_pointer_t<QItemSelection>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QItemSelection>>(_a[2]))); break;
         case 5: _t->on_pushButton_3_clicked(); break;
+        case 6: _t->saveMyDateToFile((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -224,13 +238,13 @@ int CurrentDay::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

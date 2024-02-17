@@ -18,6 +18,7 @@ class PlannerPage : public QMainWindow
 public:
     explicit PlannerPage(QWidget *parent = nullptr);
     void updateNoteIDs(QSqlDatabase& db, int dateID); ////////////////////////////////////////////////////////////
+    void updateLabel();
 
     ~PlannerPage();
 
@@ -35,6 +36,8 @@ private slots:
 
     QString loadMyDateFromFile();
 
+
+//protected:
 
 
 private:

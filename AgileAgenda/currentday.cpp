@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
 #include <QFile>
+#include <QMessageBox>
 #include "currentday.h"
 #include "ui_currentday.h"
 #include "mainwindow.h"
@@ -17,6 +18,9 @@ CurrentDay::CurrentDay(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &CurrentDay::on_pushButton_clicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &CurrentDay::on_pushButton_3_clicked);
+    // Connect the pageShown signal of the CurrentDay page to a slot that updates the label
+    // In MainWindow.cpp (assuming this is where you handle the connections)
+    //QObject::connect(&currentDay, &CurrentDay::showPlannerPage, this, &MainWindow::updateLabel);
 
 
 }
@@ -183,7 +187,7 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
 
 
     QSqlQuery q,q2,q3;
-    int year, month, day;
+    int year = 0, month = 0 , day = 0;
     if (!q.exec("SELECT GregorianYear FROM calender WHERE DateID = '"+str1+"'"))
     {
         qDebug() << "Query failed:" << q.lastError().text();
@@ -226,9 +230,32 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
 
     qDebug() << strFile;
 
-    emit showPlannerPage();
-    this->hide();
 
+    if (strFile != "0-00-00")
+    {
+        emit showPlannerPage();
+        this->hide();
+        saveMyDateToFile(strFile);
+    }
+    else
+    {
+        QMessageBox::warning(nullptr, "Error", "Please choose a valid day!", QMessageBox::Ok);
+    }
 
 }
+
+void CurrentDay::saveMyDateToFile(const QString &myDate)
+{
+    // Open the text file in write mode
+    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << myDate; // Write myDate to the file
+        file.close();
+        qDebug() << "file is now added.";
+    } else {
+        qDebug() << "Failed to open file for writing";
+    }
+}
+
 

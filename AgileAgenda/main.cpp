@@ -25,6 +25,11 @@ int main(int argc, char *argv[])
     QObject::connect(&currentDay, &CurrentDay::showPlannerPage, &plannerPage, &PlannerPage::show);
     QObject::connect(&plannerPage, &PlannerPage::showMainWindow, &mainWindow, &MainWindow::show);
 
+    // connections to update lable;
+    QObject::connect(&currentDay, &CurrentDay::showPlannerPage, &plannerPage, &PlannerPage::updateLabel);
+    QObject::connect(&mainWindow, &MainWindow::showPlannerPage, &plannerPage, &PlannerPage::updateLabel);
+
+
 
 
     mainWindow.show();

@@ -33,9 +33,7 @@ PlannerPage::PlannerPage(QWidget *parent) :
     */
 
     QString str1 = loadMyDateFromFile();
-    ui->label->setText(str1);
-    //qDebug() << str1 << " /////////////////////////////////////////////////////////////////////////////////0";
-
+    //ui->label->setText(str1);
 }
 
 PlannerPage::~PlannerPage()
@@ -45,9 +43,11 @@ PlannerPage::~PlannerPage()
 
 void PlannerPage::on_pushButton_clicked() // back to main window
 {
+    //ui->label->setText("");
+    QString str1 = loadMyDateFromFile();
+    ui->label->setText(str1);
     emit showMainWindow();
     this->hide();
-
 }
 
 
@@ -212,6 +212,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
 void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
 {
+    /// important: this has got a bug : when nothing is choosed and clicked, the program crashes.
     // Get the selected rows from the table view
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
 
@@ -294,5 +295,20 @@ QString PlannerPage::loadMyDateFromFile()
     return myDate;
 }
 
+/*
+void PlannerPage::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event); // Call base class implementation
 
+    // Update the text in ui->label whenever the CurrentDay page is shown
+    QString str1 = loadMyDateFromFile(); // Assuming loadMyDateFromFile() returns the updated text
+    ui->label->setText(str1);
+}
+*/
+
+void PlannerPage::updateLabel()
+{
+    QString newData = loadMyDateFromFile(); // Load your data from file or any other source
+    ui->label->setText(newData); // Update the label with the new data
+}
 
