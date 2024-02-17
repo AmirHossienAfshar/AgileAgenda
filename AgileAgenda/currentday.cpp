@@ -167,11 +167,88 @@ void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemS
         return;
     }
 
-    if (q.next()) {
+    if (q.next())
+    {
         ui->label->setText(q.value(0).toString());
-    } else {
+        ui->label_2->setText(QString::number(row - 1));
+    }
+    else
+    {
         ui->label->clear(); // Clear the label if no matching row is found
+        //ui->label->setText("Choose a valid day.");
     }
 }
 
+
+
+void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to planning page.
+{
+
+    QString str1 = ui->label_2->text();
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    } else {
+        qDebug() << "Database opened in the currentday page!";
+    }
+
+    QSqlQuery q,q2,q3;
+    int year, month, day;
+    if (!q.exec("SELECT GregorianYear FROM calender WHERE DateID = '"+str1+"'"))
+    {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }
+    if (q.next())
+    {
+        year = q.value(0).toInt();
+        //qDebug() << "this is the year in push button" << year;
+    }
+
+    if (!q2.exec("SELECT GregorianMonth FROM calender WHERE DateID = '"+str1+"'"))
+    {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+    if (q2.next())
+    {
+        month = q2.value(0).toInt();
+        //qDebug() << "this is the year in push button" << year;
+    }
+
+    if (!q3.exec("SELECT GregorianDay FROM calender WHERE DateID = '"+str1+"'"))
+    {
+        qDebug() << "Query failed:" << q3.lastError().text();
+        return;
+    }
+    if (q3.next())
+    {
+        day = q3.value(0).toInt();
+        //qDebug() << "this is the year in push button" << year;
+    }
+
+
+    qDebug() << "this is the year in push button" << year<<"-"<<month<<"-"<<day;
+
+
+
+
+
+    /*
+    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << mmmmmm; // Write myDate to the file
+        file.close();
+        qDebug() << "file is now added.";
+    } else {
+        qDebug() << "Failed to open file for writing";
+    }
+    if (str1 != "")
+    {
+
+    }
+*/
+}
 

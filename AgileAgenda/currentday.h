@@ -30,6 +30,8 @@ private slots:
 
     void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::CurrentDay *ui;
 };

@@ -33,6 +33,7 @@ public:
     QLabel *label;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -69,7 +70,7 @@ public:
 "color: rgb(188, 190, 136);"));
         label = new QLabel(groupBox);
         label->setObjectName("label");
-        label->setGeometry(QRect(40, 500, 311, 51));
+        label->setGeometry(QRect(40, 480, 311, 51));
         label->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
@@ -83,7 +84,18 @@ public:
 "color: rgb(188, 190, 136);"));
         pushButton_3 = new QPushButton(groupBox);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(390, 540, 141, 41));
+        pushButton_3->setGeometry(QRect(360, 540, 161, 51));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(70, 540, 201, 51));
+        label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
         CurrentDay->setCentralWidget(centralwidget);
         menubar = new QMenuBar(CurrentDay);
         menubar->setObjectName("menubar");
@@ -103,9 +115,10 @@ public:
         CurrentDay->setWindowTitle(QCoreApplication::translate("CurrentDay", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("CurrentDay", "home page", nullptr));
         groupBox->setTitle(QCoreApplication::translate("CurrentDay", "GroupBox", nullptr));
-        label->setText(QCoreApplication::translate("CurrentDay", "TextLabel", nullptr));
+        label->setText(QCoreApplication::translate("CurrentDay", "Choose a valid day.", nullptr));
         pushButton_2->setText(QCoreApplication::translate("CurrentDay", "show", nullptr));
         pushButton_3->setText(QCoreApplication::translate("CurrentDay", "select Day", nullptr));
+        label_2->setText(QCoreApplication::translate("CurrentDay", "hidden ", nullptr));
     } // retranslateUi
 
 };

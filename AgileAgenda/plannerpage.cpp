@@ -47,6 +47,7 @@ void PlannerPage::on_pushButton_clicked() // back to main window
 {
     emit showMainWindow();
     this->hide();
+
 }
 
 
