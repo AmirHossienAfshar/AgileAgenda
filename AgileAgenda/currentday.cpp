@@ -16,6 +16,8 @@ CurrentDay::CurrentDay(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &CurrentDay::on_pushButton_clicked);
+    connect(ui->pushButton_3, &QPushButton::clicked, this, &CurrentDay::on_pushButton_3_clicked);
+
 
 }
 
@@ -223,6 +225,9 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
                           .arg(day, 2, 10, QChar('0'));
 
     qDebug() << strFile;
+
+    emit showPlannerPage();
+    this->hide();
 
 
 }

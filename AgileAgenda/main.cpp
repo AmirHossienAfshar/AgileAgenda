@@ -22,7 +22,9 @@ int main(int argc, char *argv[])
     QObject::connect(&mainWindow, &MainWindow::showCurrentDayPage, &currentDay, &CurrentDay::show);
     QObject::connect(&mainWindow, &MainWindow::showPlannerPage, &plannerPage, &PlannerPage::show);
     QObject::connect(&currentDay, &CurrentDay::showMainWindow, &mainWindow, &MainWindow::show);
+    QObject::connect(&currentDay, &CurrentDay::showPlannerPage, &plannerPage, &PlannerPage::show);
     QObject::connect(&plannerPage, &PlannerPage::showMainWindow, &mainWindow, &MainWindow::show);
+
 
 
     mainWindow.show();

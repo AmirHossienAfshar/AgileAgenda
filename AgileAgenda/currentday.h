@@ -22,6 +22,7 @@ public:
 
 signals:
     void showMainWindow();
+    void showPlannerPage();
 
 private slots:
     void on_pushButton_clicked();
