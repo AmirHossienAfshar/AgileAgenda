@@ -310,5 +310,78 @@ void PlannerPage::updateLabel()
 {
     QString newData = loadMyDateFromFile(); // Load your data from file or any other source
     ui->label->setText(newData); // Update the label with the new data
+
+    QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+    if (!db.isOpen())
+    {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    }
+    //else
+        //qDebug() << "database opend in the currentday page! ";
+
+    /*QSqlQuery q;
+    if (!q.exec("SELECT * FROM calender"))
+    {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }
+
+    if (q.next()) // Check if there is at least one row in the result
+    {
+        QString fullDay = q.value(0).toString(); // Assuming fullDay is a column in the result
+        ui->label_2->setText(fullDay); // Set the text of the label to the value retrieved from the query
+        qDebug() << "Data retrieved from the query:" << fullDay;
+
+    }
+    else
+    {
+        qDebug() << "No data retrieved from the query";
+    }
+    */
+
+    QStringList components = newData.split("-");
+    int year = 0, month = 0, day = 0;
+
+    if (components.size() == 3)
+    {
+        // Extract year, month, and day
+        year = components[0].toInt();
+        month = components[1].toInt();
+        day = components[2].toInt();
+
+        // Print the parsed components
+
+        qDebug() << "Year:" << year;
+        qDebug() << "Month:" << month;
+        qDebug() << "Day:" << day;
+
+    }
+    else
+    {
+        qDebug() << "Invalid date string format!";
+    }
+
+    QSqlQuery q2;
+    QString queryString = "SELECT fullDay FROM calender WHERE GregorianYear = '" + QString::number(year) + "' AND GregorianMonth = '" + QString::number(month) + "' AND GregorianDay = '" + QString::number(day) + "'";
+    qDebug() << "Query: " << queryString;
+    if (!q2.exec(queryString)) {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+
+    //QString what_date;
+    if (q2.next())
+    {
+        QString fullDay = q2.value(0).toString(); // Assuming fullDay is a column in the result
+        ui->label_2->setText(fullDay); // Set the text of the label to the value retrieved from the query
+        qDebug() << "Data retrieved from the query:" << fullDay;
+    }
+    else
+    {
+        qDebug() << "No matching date found.";
+        return;
+    }
+
 }
 

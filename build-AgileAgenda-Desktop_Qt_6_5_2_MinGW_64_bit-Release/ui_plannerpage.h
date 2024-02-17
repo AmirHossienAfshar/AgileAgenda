@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QTextEdit>
@@ -31,11 +32,20 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_3;
     QLabel *label;
+    QLabel *label_2;
+    QLabel *label_4;
+    QLabel *label_3;
+    QSpacerItem *verticalSpacer;
     QGroupBox *groupBox;
+    QGridLayout *gridLayout_4;
     QTableView *tableView;
+    QSpacerItem *verticalSpacer_2;
     QGroupBox *groupBox_2;
-    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout_5;
+    QTableView *tableView_2;
+    QSpacerItem *verticalSpacer_3;
     QGroupBox *groupBox_4;
     QGridLayout *gridLayout_2;
     QTextEdit *textEdit;
@@ -62,15 +72,62 @@ public:
         gridLayout->setObjectName("gridLayout");
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName("groupBox_3");
-        groupBox_3->setMinimumSize(QSize(451, 91));
+        groupBox_3->setMinimumSize(QSize(451, 170));
         groupBox_3->setMaximumSize(QSize(16777215, 170));
         groupBox_3->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
 "background-color: rgb(96, 107, 112);\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
+        gridLayout_3 = new QGridLayout(groupBox_3);
+        gridLayout_3->setObjectName("gridLayout_3");
         label = new QLabel(groupBox_3);
         label->setObjectName("label");
-        label->setGeometry(QRect(100, 80, 221, 16));
+        label->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
+"background-color: rgb(89, 123, 110);\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label, 1, 1, 1, 1);
+
+        label_2 = new QLabel(groupBox_3);
+        label_2->setObjectName("label_2");
+        label_2->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
+"background-color: rgb(89, 123, 110);\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        label_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_2, 2, 1, 1, 1);
+
+        label_4 = new QLabel(groupBox_3);
+        label_4->setObjectName("label_4");
+        label_4->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
+"background-color: rgb(89, 123, 110);\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        label_4->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_4, 2, 0, 1, 1);
+
+        label_3 = new QLabel(groupBox_3);
+        label_3->setObjectName("label_3");
+        label_3->setStyleSheet(QString::fromUtf8("border-radius: 15px;\n"
+"background-color: rgb(89, 123, 110);\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        label_3->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_3, 1, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 12, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_3->addItem(verticalSpacer, 0, 0, 1, 1);
+
 
         gridLayout->addWidget(groupBox_3, 0, 0, 1, 1);
 
@@ -81,12 +138,20 @@ public:
 "background-color: rgb(89, 123, 110);\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
+        gridLayout_4 = new QGridLayout(groupBox);
+        gridLayout_4->setObjectName("gridLayout_4");
         tableView = new QTableView(groupBox);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(20, 40, 421, 511));
         tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
 "color: rgb(8, 8, 8);\n"
 ""));
+
+        gridLayout_4->addWidget(tableView, 1, 0, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_4->addItem(verticalSpacer_2, 0, 0, 1, 1);
+
 
         gridLayout->addWidget(groupBox, 0, 1, 2, 1);
 
@@ -97,13 +162,20 @@ public:
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));
-        groupBox_5 = new QGroupBox(groupBox_2);
-        groupBox_5->setObjectName("groupBox_5");
-        groupBox_5->setGeometry(QRect(10, 120, 441, 151));
-        groupBox_5->setMinimumSize(QSize(441, 151));
-        groupBox_5->setMaximumSize(QSize(900, 151));
-        groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
+        gridLayout_5 = new QGridLayout(groupBox_2);
+        gridLayout_5->setObjectName("gridLayout_5");
+        tableView_2 = new QTableView(groupBox_2);
+        tableView_2->setObjectName("tableView_2");
+        tableView_2->setStyleSheet(QString::fromUtf8("background-color: rgb(96, 107, 112);\n"
+"color: rgb(8, 8, 8);\n"
 ""));
+
+        gridLayout_5->addWidget(tableView_2, 1, 0, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_5->addItem(verticalSpacer_3, 0, 0, 1, 1);
+
 
         gridLayout->addWidget(groupBox_2, 1, 0, 1, 1);
 
@@ -234,9 +306,11 @@ public:
         PlannerPage->setWindowTitle(QCoreApplication::translate("PlannerPage", "MainWindow", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("PlannerPage", "Callender", nullptr));
         label->setText(QCoreApplication::translate("PlannerPage", "TextLabel", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("PlannerPage", "To-Do list", nullptr));
-        groupBox_2->setTitle(QCoreApplication::translate("PlannerPage", "Notes", nullptr));
-        groupBox_5->setTitle(QCoreApplication::translate("PlannerPage", "GroupBox", nullptr));
+        label_2->setText(QCoreApplication::translate("PlannerPage", "TextLabel", nullptr));
+        label_4->setText(QCoreApplication::translate("PlannerPage", "Persian date:", nullptr));
+        label_3->setText(QCoreApplication::translate("PlannerPage", "Gregorian date:", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("PlannerPage", "Notes", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("PlannerPage", "To-Do list", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("PlannerPage", "Menu", nullptr));
         pushButton_3->setText(QCoreApplication::translate("PlannerPage", "show To-do", nullptr));
         pushButton_7->setText(QCoreApplication::translate("PlannerPage", "delete \n"

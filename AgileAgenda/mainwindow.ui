@@ -161,6 +161,9 @@ color: rgb(188, 190, 136);</string>
           <height>51</height>
          </rect>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(188, 190, 136);
 color:  rgb(50, 66, 101);
@@ -178,6 +181,9 @@ color:  rgb(50, 66, 101);
           <width>231</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(188, 190, 136);

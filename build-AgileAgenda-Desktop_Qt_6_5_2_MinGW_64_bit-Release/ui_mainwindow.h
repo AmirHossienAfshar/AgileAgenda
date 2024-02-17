@@ -96,12 +96,14 @@ public:
         pushButton = new QPushButton(groupBox_3);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(40, 110, 231, 51));
+        pushButton->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
 "color:  rgb(50, 66, 101);\n"
 ""));
         pushButton_2 = new QPushButton(groupBox_3);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setGeometry(QRect(40, 180, 231, 51));
+        pushButton_2->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
 "color:  rgb(50, 66, 101);\n"
 ""));
