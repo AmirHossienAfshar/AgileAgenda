@@ -94,14 +94,33 @@ color: rgb(188, 190, 136);</string>
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>500</y>
+       <x>360</x>
+       <y>480</y>
        <width>161</width>
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+     </property>
      <property name="text">
       <string>show</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>540</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>select Day</string>
      </property>
     </widget>
    </widget>

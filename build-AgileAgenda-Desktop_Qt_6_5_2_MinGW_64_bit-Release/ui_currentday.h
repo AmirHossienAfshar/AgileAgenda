@@ -32,6 +32,7 @@ public:
     QTableView *tableView;
     QLabel *label;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -75,7 +76,14 @@ public:
 "color: rgb(188, 190, 136);"));
         pushButton_2 = new QPushButton(groupBox);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(370, 500, 161, 51));
+        pushButton_2->setGeometry(QRect(360, 480, 161, 51));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+        pushButton_3 = new QPushButton(groupBox);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(390, 540, 141, 41));
         CurrentDay->setCentralWidget(centralwidget);
         menubar = new QMenuBar(CurrentDay);
         menubar->setObjectName("menubar");
@@ -97,6 +105,7 @@ public:
         groupBox->setTitle(QCoreApplication::translate("CurrentDay", "GroupBox", nullptr));
         label->setText(QCoreApplication::translate("CurrentDay", "TextLabel", nullptr));
         pushButton_2->setText(QCoreApplication::translate("CurrentDay", "show", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("CurrentDay", "select Day", nullptr));
     } // retranslateUi
 
 };
