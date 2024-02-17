@@ -16,20 +16,6 @@ CurrentDay::CurrentDay(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &CurrentDay::on_pushButton_clicked);
-    //connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged); /// this part has got some problems.
-    //connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
-    // Connect the selectionChanged signal of a QItemSelectionModel instance to the onSelectionChanged slot
-    //connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
-
-    //connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
-
-
-    /*if (ui->tableView->selectionModel())
-        qDebug ()<< "yes this isnt null and fine.";
-            else {
-        qDebug ()<< "here we have a bad null";
-
-        }*/
 
 }
 
@@ -193,6 +179,7 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
         qDebug() << "Database opened in the currentday page!";
     }
 
+
     QSqlQuery q,q2,q3;
     int year, month, day;
     if (!q.exec("SELECT GregorianYear FROM calender WHERE DateID = '"+str1+"'"))
@@ -229,26 +216,14 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
     }
 
 
-    qDebug() << "this is the year in push button" << year<<"-"<<month<<"-"<<day;
+    //QString strFile = QString::number(year) +"-" + QString::number(month) +"-" +QString::number(day);
+    QString strFile = QString("%1-%2-%3")
+                          .arg(year)
+                          .arg(month, 2, 10, QChar('0'))
+                          .arg(day, 2, 10, QChar('0'));
+
+    qDebug() << strFile;
 
 
-
-
-
-    /*
-    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&file);
-        out << mmmmmm; // Write myDate to the file
-        file.close();
-        qDebug() << "file is now added.";
-    } else {
-        qDebug() << "Failed to open file for writing";
-    }
-    if (str1 != "")
-    {
-
-    }
-*/
 }
 
