@@ -36,9 +36,15 @@ private slots:
 
     QString loadMyDateFromFile();
 
+    void show_notes(QString);
+
 
 //protected:
 
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::PlannerPage *ui;

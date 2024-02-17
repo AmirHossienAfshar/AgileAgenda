@@ -45,11 +45,14 @@ static constexpr auto qt_meta_stringdata_CLASSPlannerPageENDCLASS = QtMocHelpers
     "on_pushButton_2_clicked",
     "on_pushButton_4_clicked",
     "on_pushButton_5_clicked",
-    "loadMyDateFromFile"
+    "loadMyDateFromFile",
+    "show_notes",
+    "on_pushButton_3_clicked",
+    "on_pushButton_6_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSPlannerPageENDCLASS_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[22];
     char stringdata0[12];
     char stringdata1[15];
     char stringdata2[1];
@@ -58,6 +61,9 @@ struct qt_meta_stringdata_CLASSPlannerPageENDCLASS_t {
     char stringdata5[24];
     char stringdata6[24];
     char stringdata7[19];
+    char stringdata8[11];
+    char stringdata9[24];
+    char stringdata10[24];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSPlannerPageENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -70,7 +76,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSPlannerPageENDCLASS_t qt_meta_s
         QT_MOC_LITERAL(50, 23),  // "on_pushButton_2_clicked"
         QT_MOC_LITERAL(74, 23),  // "on_pushButton_4_clicked"
         QT_MOC_LITERAL(98, 23),  // "on_pushButton_5_clicked"
-        QT_MOC_LITERAL(122, 18)   // "loadMyDateFromFile"
+        QT_MOC_LITERAL(122, 18),  // "loadMyDateFromFile"
+        QT_MOC_LITERAL(141, 10),  // "show_notes"
+        QT_MOC_LITERAL(152, 23),  // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(176, 23)   // "on_pushButton_6_clicked"
     },
     "PlannerPage",
     "showMainWindow",
@@ -79,7 +88,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSPlannerPageENDCLASS_t qt_meta_s
     "on_pushButton_2_clicked",
     "on_pushButton_4_clicked",
     "on_pushButton_5_clicked",
-    "loadMyDateFromFile"
+    "loadMyDateFromFile",
+    "show_notes",
+    "on_pushButton_3_clicked",
+    "on_pushButton_6_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -91,7 +103,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlannerPageENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -99,14 +111,17 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlannerPageENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    1 /* Public */,
+       1,    0,   68,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   51,    2, 0x08,    2 /* Private */,
-       4,    0,   52,    2, 0x08,    3 /* Private */,
-       5,    0,   53,    2, 0x08,    4 /* Private */,
-       6,    0,   54,    2, 0x08,    5 /* Private */,
-       7,    0,   55,    2, 0x08,    6 /* Private */,
+       3,    0,   69,    2, 0x08,    2 /* Private */,
+       4,    0,   70,    2, 0x08,    3 /* Private */,
+       5,    0,   71,    2, 0x08,    4 /* Private */,
+       6,    0,   72,    2, 0x08,    5 /* Private */,
+       7,    0,   73,    2, 0x08,    6 /* Private */,
+       8,    1,   74,    2, 0x08,    7 /* Private */,
+       9,    0,   77,    2, 0x08,    9 /* Private */,
+      10,    0,   78,    2, 0x08,   10 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -117,6 +132,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlannerPageENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::QString,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -141,7 +159,14 @@ Q_CONSTINIT const QMetaObject PlannerPage::staticMetaObject = { {
         // method 'on_pushButton_5_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'loadMyDateFromFile'
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'show_notes'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'on_pushButton_3_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_6_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -159,6 +184,9 @@ void PlannerPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 4: _t->on_pushButton_5_clicked(); break;
         case 5: { QString _r = _t->loadMyDateFromFile();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 6: _t->show_notes((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->on_pushButton_3_clicked(); break;
+        case 8: _t->on_pushButton_6_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -192,13 +220,13 @@ int PlannerPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }
