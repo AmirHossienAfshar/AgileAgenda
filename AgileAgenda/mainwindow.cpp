@@ -34,13 +34,14 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked() // goes to choose day page.
 {
     /* old method that could cause memory leak.
     CurrentDay *page2 = new CurrentDay;
     this->hide();
     page2->show();
     */
+
 
     emit showCurrentDayPage();
     this->hide();
@@ -58,7 +59,7 @@ void MainWindow::on_pushButton_2_clicked()  // goes directly to plan the current
     MyDate = dateString;
     ui->labelText->setText(dateString);
 
-    saveMyDateToFile(dateString);
+    saveMyDateToFile(dateString); /// this line is what is going to be diffrent on the choose-day push button
 
 }
 

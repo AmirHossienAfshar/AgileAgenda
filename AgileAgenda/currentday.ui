@@ -6,26 +6,104 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>960</width>
+    <height>690</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(142, 148, 124);
+border-radius: 10px;
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>190</y>
-      <width>221</width>
-      <height>131</height>
+      <x>700</x>
+      <y>450</y>
+      <width>171</width>
+      <height>111</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
     </property>
     <property name="text">
      <string>home page</string>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>601</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 15px;
+background-color: rgb(96, 107, 112);
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>501</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>500</y>
+       <width>311</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>500</y>
+       <width>161</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>show</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -33,7 +111,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>960</width>
      <height>21</height>
     </rect>
    </property>

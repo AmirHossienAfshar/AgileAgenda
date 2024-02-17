@@ -34,6 +34,7 @@ PlannerPage::PlannerPage(QWidget *parent) :
 
     QString str1 = loadMyDateFromFile();
     ui->label->setText(str1);
+    //qDebug() << str1 << " /////////////////////////////////////////////////////////////////////////////////0";
 
 }
 
@@ -86,8 +87,6 @@ void PlannerPage::on_pushButton_2_clicked()   // insert To-do list line edith pu
     {
         qDebug() << "Invalid date string format!";
     }
-
-    day = 17;
 
 
     /*QSqlQuery q;
@@ -160,6 +159,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
         qDebug() << "Year:" << year;
         qDebug() << "Month:" << month;
+        qDebug() << "Day:" << day;
 
     }
     else
@@ -167,8 +167,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
         qDebug() << "Invalid date string format!";
     }
 
-    day = 17;
-    qDebug() << "Day:" << day;
+    //day = 17;
 
 
     QSqlQuery q2;
@@ -192,20 +191,10 @@ void PlannerPage::on_pushButton_4_clicked()  // show To-do list
 
     QSqlQuery q;
     //q.exec("SELECT * FROM Notes");
-    if (!q.exec("SELECT Note FROM Notes WHERE DateID = '" + what_date + "'")) { ////////////////////////////////////////////////////////////////////////////
+    if (!q.exec("SELECT Note FROM Notes WHERE DateID = '" + what_date + "'")) {
         qDebug() << "Query failed:" << q.lastError().text();
         return;
     }
-
-    /*
-    // Print the results of the query
-    qDebug() << "Query results:";
-    while (q.next()) {
-        // Assuming Notes table has two columns: 'id' and 'content'
-        qDebug() << "ID:" << q.value(0).toInt() << ", Content:" << q.value(1).toString();
-    }
-    */
-
 
 
     QSqlQueryModel *m = new QSqlQueryModel;
@@ -267,18 +256,10 @@ void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
         qDebug() << "Error committing transaction:" << db.lastError().text();
     }
 
-    on_pushButton_4_clicked();  // Update the view (optional)
-
-
-    /*QSqlQuery query;
-    auto it = selectedRows.begin();
-    int row = it->row();
-    row++;
-    qDebug() << row;
-    query.exec("DELETE FROM Notes WHERE RowID = '" + QString::number(row) + "'");
-    */
+    on_pushButton_4_clicked();
 
     updateNoteIDs(db, 1); // this line is not nessesury since the view push button is clicked on earlier before!!
+    /// this line is suspicius!! why is that having deleted 1 instead of date??? yet sounds to work correctly.
 
 }
 
@@ -300,7 +281,8 @@ QString PlannerPage::loadMyDateFromFile()
 {
     QString myDate;
     // Open the text file in read mode
-    QFile file("mydate.txt"); ///////////////////////////////////////////// as an intersting fact, this works fine but not the other one!
+    //QFile file("mydate.txt"); ///////////////////////////////////////////// as an intersting fact, this works fine but not the other one!
+    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
         myDate = in.readAll(); // Read myDate from the file

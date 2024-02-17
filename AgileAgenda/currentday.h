@@ -1,3 +1,8 @@
+#include <QModelIndexList>
+#include <QItemSelection>
+#include <QModelIndex>
+
+
 #ifndef CURRENTDAY_H
 #define CURRENTDAY_H
 
@@ -20,6 +25,10 @@ signals:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
 private:
     Ui::CurrentDay *ui;
