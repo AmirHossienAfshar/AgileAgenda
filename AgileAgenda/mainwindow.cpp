@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 //#include "currentday.h"
 #include <QDate>
+#include <QDir>
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
@@ -78,7 +79,9 @@ QString MainWindow::getMyDate() const
 
 void MainWindow::saveMyDateToFile(const QString &myDate) {
     // Open the text file in write mode
-    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
+    QString filePath = QCoreApplication::applicationDirPath() + QDir::separator() + "mydate.txt";
+    QFile file(filePath);
+    //QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
         out << myDate; // Write myDate to the file

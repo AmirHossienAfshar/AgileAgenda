@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
 #include <QFile>
+#include <QDir>
 #include <QMessageBox>
 #include "currentday.h"
 #include "ui_currentday.h"
@@ -436,8 +437,11 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
 
 void CurrentDay::saveMyDateToFile(const QString &myDate)
 {
+    QString filePath = QCoreApplication::applicationDirPath() + QDir::separator() + "mydate.txt";
+    QFile file(filePath);
+
     // Open the text file in write mode
-    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
+    //QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
         out << myDate; // Write myDate to the file

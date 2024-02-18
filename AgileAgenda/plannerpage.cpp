@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
 #include <QFile>
+#include <QDir>
 #include <QTextStream>
 #include "plannerpage.h"
 #include "ui_plannerpage.h"
@@ -316,8 +317,10 @@ QString PlannerPage::loadMyDateFromFile()
 {
     QString myDate;
     // Open the text file in read mode
-    //QFile file("mydate.txt"); ///////////////////////////////////////////// as an intersting fact, this works fine but not the other one!
-    QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
+    //QFile file("mydate.txt");
+    QString filePath = QCoreApplication::applicationDirPath() + QDir::separator() + "mydate.txt";
+    QFile file(filePath);
+    //QFile file("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda/mydate.txt");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
         myDate = in.readAll(); // Read myDate from the file

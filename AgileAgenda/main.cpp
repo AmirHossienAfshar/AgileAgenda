@@ -2,6 +2,7 @@
 #include "currentday.h"
 #include "plannerpage.h"
 #include <QApplication>
+#include <QDir>
 #include <QCoreApplication>
 #include <QtSql/QSql>
 #include <QtSql/QSqlDatabase>
@@ -36,7 +37,13 @@ int main(int argc, char *argv[])
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     //db.setDatabaseName("Callender.db"); //
-    db.setDatabaseName("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda\\Callender.db");
+
+    //db.setDatabaseName("C:\\Users\\user\\Desktop\\AgileAgenda\\AgileAgenda\\Callender.db");
+
+    // Set the database file path
+    QString databaseFilePath = QCoreApplication::applicationDirPath() + QDir::separator() + "Callender.db";
+    db.setDatabaseName(databaseFilePath);
+
     if (!db.open()) {
 
         qDebug() << "Error: Failed to open database:" << db.lastError().text();
