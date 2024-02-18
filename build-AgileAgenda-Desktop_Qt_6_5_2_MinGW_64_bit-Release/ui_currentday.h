@@ -34,6 +34,7 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QLabel *label_2;
+    QTableView *tableView_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -63,7 +64,7 @@ public:
 "color: rgb(188, 190, 136);"));
         tableView = new QTableView(groupBox);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(40, 30, 501, 441));
+        tableView->setGeometry(QRect(40, 30, 221, 441));
         tableView->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
@@ -93,6 +94,13 @@ public:
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(70, 540, 201, 51));
         label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
+"border-radius: 15px;\n"
+"font: 900 16pt \"Maven Pro\";\n"
+"color: rgb(188, 190, 136);"));
+        tableView_2 = new QTableView(groupBox);
+        tableView_2->setObjectName("tableView_2");
+        tableView_2->setGeometry(QRect(330, 30, 221, 441));
+        tableView_2->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 66, 101);\n"
 "border-radius: 15px;\n"
 "font: 900 16pt \"Maven Pro\";\n"
 "color: rgb(188, 190, 136);"));

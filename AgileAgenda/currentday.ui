@@ -61,7 +61,7 @@ color: rgb(188, 190, 136);</string>
       <rect>
        <x>40</x>
        <y>30</y>
-       <width>501</width>
+       <width>221</width>
        <height>441</height>
       </rect>
      </property>
@@ -146,6 +146,22 @@ color: rgb(188, 190, 136);</string>
      </property>
      <property name="text">
       <string>hidden </string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="tableView_2">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>30</y>
+       <width>221</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 66, 101);
+border-radius: 15px;
+font: 900 16pt &quot;Maven Pro&quot;;
+color: rgb(188, 190, 136);</string>
      </property>
     </widget>
    </widget>

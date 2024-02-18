@@ -213,6 +213,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show Notes list
     ui->tableView->setModel(m);
     //delete m;
     connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PlannerPage::updateDeleteButtonVisibility);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     updateNoteIDs(db, what_date.toInt());
     //qDebug() << "Number of rows in the model: push button:" << m->rowCount();
@@ -419,10 +420,31 @@ void PlannerPage::show_notes(QString fullDay) /// this has problem: only clears 
     //qDebug() << "Number of rows in the model:" << m->rowCount();
 
     ui->tableView->setModel(m);
-    //delete m;
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 
     updateNoteIDs(db, fullDay.toInt()); /// this lin is sus
     ui->tableView->setModel(m);
+
+    QSqlQuery q2;
+    //q.exec("SELECT * FROM Notes");
+    //qDebug() << what_date << "///////////////////////////////////////////////////////////////////////////";
+    //if (!q.exec("SELECT * FROM ToDoList ")) {
+
+    if (!q2.exec("SELECT Task FROM ToDoList WHERE DateID = '" + fullDay + "'")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        return;
+    }
+
+
+    QSqlQueryModel *m2 = new QSqlQueryModel;
+    m2->setQuery(std::move(q2));
+
+    ui->tableView_2->setModel(m2);
+    connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PlannerPage::updateDeleteButtonVisibility2);
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    updateToDoIDs(db, fullDay.toInt());
 }
 
 
@@ -499,6 +521,9 @@ void PlannerPage::on_pushButton_3_clicked() // show To-Do push button // newly a
     ui->tableView_2->setModel(m);
     //delete m;
     connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PlannerPage::updateDeleteButtonVisibility2);
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_2->setWordWrap(true);
+
 
     updateToDoIDs(db, what_date.toInt());
     //qDebug() << "Number of rows in the model: push button:" << m->rowCount();

@@ -21,6 +21,7 @@ CurrentDay::CurrentDay(QWidget *parent) :
     // Connect the pageShown signal of the CurrentDay page to a slot that updates the label
     // In MainWindow.cpp (assuming this is where you handle the connections)
     //QObject::connect(&currentDay, &CurrentDay::showPlannerPage, this, &MainWindow::updateLabel);
+    ui->label_2->hide();
 
 
 }
@@ -32,21 +33,14 @@ CurrentDay::~CurrentDay()
 
 void CurrentDay::on_pushButton_clicked()
 {
-    /*
-    MainWindow *welcomePage = new MainWindow;
-    this->hide();
-    welcomePage->show();
-    //delete this;  // this part is considered dangerous, try to figure this out.
-    */
     emit showMainWindow();
     this->hide();
-
 }
 
 
 void CurrentDay::on_pushButton_2_clicked() // show push button
 {
-    QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+    QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen())
     {
         qDebug() << "Database not open in the currentday page !";
@@ -67,7 +61,15 @@ void CurrentDay::on_pushButton_2_clicked() // show push button
     m->setQuery(std::move(q));
 
     ui->tableView->setModel(m);
+    ui->tableView_2->setModel(m);
     connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
+    connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
+
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+
+
 
 
     /*
@@ -101,38 +103,6 @@ void CurrentDay::on_pushButton_2_clicked() // show push button
 
 void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
 
-
-    /*QModelIndexList selectedRows = selected.indexes();
-
-    QSqlDatabase db = QSqlDatabase::database();
-    if (!db.isOpen())
-    {
-        qDebug() << "Database not open in the currentday page !";
-        return;
-    }
-    else
-        qDebug() << "database opend in the currentday page! ";
-
-    QSqlQuery q;
-
-
-    if (!selectedRows.isEmpty())
-    {
-        int row = selectedRows.first().row() + 1;
-        if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row) + "'"))
-        {
-            qDebug() << "Query failed:" << q.lastError().text();
-            qDebug() << "row is : " << row;
-
-            return;
-        }
-        //ui->label->setText(QString::number(row));
-        ui->label->setText(q.value(0).toString());
-    }
-    else
-    {
-        ui->label->clear(); // Clear the label if no row is selected
-    }*/
 
     QModelIndexList selectedRows = selected.indexes();
 
