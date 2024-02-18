@@ -21,6 +21,8 @@ CurrentDay::CurrentDay(QWidget *parent) :
     // Connect the pageShown signal of the CurrentDay page to a slot that updates the label
     // In MainWindow.cpp (assuming this is where you handle the connections)
     //QObject::connect(&currentDay, &CurrentDay::showPlannerPage, this, &MainWindow::updateLabel);
+
+
     ui->label_2->hide();
 
 
@@ -33,6 +35,12 @@ CurrentDay::~CurrentDay()
 
 void CurrentDay::on_pushButton_clicked()
 {
+    ui->tableView->clearSelection();
+    ui->tableView_2->clearSelection();
+    ui->tableView_3->clearSelection();
+    ui->tableView_4->clearSelection();
+    ui->tableView_5->clearSelection();
+
     emit showMainWindow();
     this->hide();
 }
@@ -50,60 +58,136 @@ void CurrentDay::on_pushButton_2_clicked() // show push button
         qDebug() << "database opend in the currentday page! ";
 
     QSqlQuery q;
-    if (!q.exec("SELECT fullDay FROM calender"))
+    if (!q.exec("SELECT fullDay FROM calender WHERE ToDoListID = 12"))
     {
         qDebug() << "Query failed:" << q.lastError().text();
         return;
     }
 
+    QSqlQuery q2;
+    if (!q2.exec("SELECT fullDay FROM calender WHERE ToDoListID = 1"))
+    {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+    //else qDebug () <<"q2 is fine";
+
+    QSqlQuery q3;
+    if (!q3.exec("SELECT fullDay FROM calender WHERE ToDoListID = 2"))
+    {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+    //else qDebug () <<"q2 is fine";
+
+    QSqlQuery q4;
+    if (!q4.exec("SELECT fullDay FROM calender WHERE ToDoListID = 3"))
+    {
+        qDebug() << "Query failed:" << q4.lastError().text();
+        return;
+    }
+
+    QSqlQuery q5;
+    if (!q5.exec("SELECT fullDay FROM calender WHERE ToDoListID = 4"))
+    {
+        qDebug() << "Query failed:" << q5.lastError().text();
+        return;
+    }
+
 
     QSqlQueryModel *m = new QSqlQueryModel;
-    m->setQuery(std::move(q));
+    QSqlQueryModel *m2 = new QSqlQueryModel;
+    QSqlQueryModel *m3 = new QSqlQueryModel;
+    QSqlQueryModel *m4 = new QSqlQueryModel;
+    QSqlQueryModel *m5 = new QSqlQueryModel;
 
+
+
+
+    m->setQuery(std::move(q));
     ui->tableView->setModel(m);
-    ui->tableView_2->setModel(m);
+
+    m2->setQuery(std::move(q2));
+    ui->tableView_2->setModel(m2);
+
+    m3->setQuery(std::move(q3));
+    ui->tableView_3->setModel(m3);
+
+    m4->setQuery(std::move(q4));
+    ui->tableView_4->setModel(m4);
+
+    m5->setQuery(std::move(q5));
+    ui->tableView_5->setModel(m5);
+
     connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
-    connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged);
+    connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged2);
+    connect(ui->tableView_3->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged3);
+    connect(ui->tableView_4->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged4);
+    connect(ui->tableView_5->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CurrentDay::onSelectionChanged5);
+
 
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_5->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-
-
-
-
-    /*
-    if (ui->tableView->selectionModel())
-        qDebug ()<< "yes this isnt null and fine.";
-    else {
-        qDebug ()<< "here we have a bad null";
-
-    }*/
-
-    /*
-    QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
-    for (auto it = selectedRows.begin(); it != selectedRows.end(); ++it)
-    {
-        // Get the row index
-        int row = it->row();
-
-        row++;
-        qDebug() << row;
-
-        ui->label->setText(QString::number(row));
-    }
-    */
-
-    /*// Commit the transaction
-    if (!db.commit()) {
-        qDebug() << "Error committing transaction:" << db.lastError().text();
-    }*/
 
 }
 
 void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
 
 
+    ui->tableView_2->clearSelection();
+    ui->tableView_3->clearSelection();
+    ui->tableView_4->clearSelection();
+    ui->tableView_5->clearSelection();
+    QModelIndexList selectedRows = selected.indexes();
+
+    if (selectedRows.isEmpty()) {
+        // Clear the label if no row is selected
+        ui->label->clear();
+        ui->tableView->clearSelection();
+
+        return;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    } else {
+        qDebug() << "Database opened in the currentday page!";
+    }
+
+    QSqlQuery q;
+
+    int row = selectedRows.first().row() + 1;
+    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row + 8) + "'")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        qDebug() << "Row is: " << row;
+        return;
+    }
+
+    if (q.next())
+    {
+        ui->label->setText(q.value(0).toString());
+        ui->label_2->setText(QString::number(row + 8));
+    }
+    else
+    {
+        ui->label->clear(); // Clear the label if no matching row is found
+        //ui->label->setText("Choose a valid day.");
+    }
+}
+
+void CurrentDay::onSelectionChanged2(const QItemSelection &selected, const QItemSelection &deselected) {
+
+
+    ui->tableView->clearSelection();
+    ui->tableView_3->clearSelection();
+    ui->tableView_4->clearSelection();
+    ui->tableView_5->clearSelection();
     QModelIndexList selectedRows = selected.indexes();
 
     if (selectedRows.isEmpty()) {
@@ -123,7 +207,7 @@ void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemS
     QSqlQuery q;
 
     int row = selectedRows.first().row() + 1;
-    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row - 1) + "'")) {
+    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row + 37) + "'")) {
         qDebug() << "Query failed:" << q.lastError().text();
         qDebug() << "Row is: " << row;
         return;
@@ -132,7 +216,7 @@ void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemS
     if (q.next())
     {
         ui->label->setText(q.value(0).toString());
-        ui->label_2->setText(QString::number(row - 1));
+        ui->label_2->setText(QString::number(row + 37));
     }
     else
     {
@@ -141,6 +225,137 @@ void CurrentDay::onSelectionChanged(const QItemSelection &selected, const QItemS
     }
 }
 
+void CurrentDay::onSelectionChanged3(const QItemSelection &selected, const QItemSelection &deselected) {
+
+
+    ui->tableView->clearSelection();
+    ui->tableView_2->clearSelection();
+    ui->tableView_4->clearSelection();
+    ui->tableView_5->clearSelection();
+    QModelIndexList selectedRows = selected.indexes();
+
+    if (selectedRows.isEmpty()) {
+        // Clear the label if no row is selected
+        ui->label->clear();
+        return;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    } else {
+        qDebug() << "Database opened in the currentday page!";
+    }
+
+    QSqlQuery q;
+
+    int row = selectedRows.first().row() + 1;
+    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row + 68) + "'")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        qDebug() << "Row is: " << row;
+        return;
+    }
+
+    if (q.next())
+    {
+        ui->label->setText(q.value(0).toString());
+        ui->label_2->setText(QString::number(row + 68));
+    }
+    else
+    {
+        ui->label->clear(); // Clear the label if no matching row is found
+        //ui->label->setText("Choose a valid day.");
+    }
+}
+
+
+void CurrentDay::onSelectionChanged4(const QItemSelection &selected, const QItemSelection &deselected) {
+
+    ui->tableView->clearSelection();
+    ui->tableView_2->clearSelection();
+    ui->tableView_3->clearSelection();
+    ui->tableView_5->clearSelection();
+    QModelIndexList selectedRows = selected.indexes();
+
+    if (selectedRows.isEmpty()) {
+        // Clear the label if no row is selected
+        ui->label->clear();
+        return;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    } else {
+        qDebug() << "Database opened in the currentday page!";
+    }
+
+    QSqlQuery q;
+
+    int row = selectedRows.first().row() + 1;
+    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row + 99) + "'")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        qDebug() << "Row is: " << row;
+        return;
+    }
+
+    if (q.next())
+    {
+        ui->label->setText(q.value(0).toString());
+        ui->label_2->setText(QString::number(row + 99));
+    }
+    else
+    {
+        ui->label->clear(); // Clear the label if no matching row is found
+        //ui->label->setText("Choose a valid day.");
+    }
+}
+
+void CurrentDay::onSelectionChanged5(const QItemSelection &selected, const QItemSelection &deselected) {
+
+
+    ui->tableView->clearSelection();
+    ui->tableView_2->clearSelection();
+    ui->tableView_3->clearSelection();
+    ui->tableView_4->clearSelection();
+    QModelIndexList selectedRows = selected.indexes();
+
+    if (selectedRows.isEmpty()) {
+        // Clear the label if no row is selected
+        ui->label->clear();
+        return;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        qDebug() << "Database not open in the currentday page !";
+        return;
+    } else {
+        qDebug() << "Database opened in the currentday page!";
+    }
+
+    QSqlQuery q;
+
+    int row = selectedRows.first().row() + 1;
+    if (!q.exec("SELECT fullDay FROM calender WHERE DateID = '" + QString::number(row + 130) + "'")) {
+        qDebug() << "Query failed:" << q.lastError().text();
+        qDebug() << "Row is: " << row;
+        return;
+    }
+
+    if (q.next())
+    {
+        ui->label->setText(q.value(0).toString());
+        ui->label_2->setText(QString::number(row + 130));
+    }
+    else
+    {
+        ui->label->clear(); // Clear the label if no matching row is found
+        //ui->label->setText("Choose a valid day.");
+    }
+}
 
 
 void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to planning page.
@@ -203,6 +418,11 @@ void CurrentDay::on_pushButton_3_clicked()  /// chooses the day and goes to plan
 
     if (strFile != "0-00-00")
     {
+        ui->tableView->clearSelection();
+        ui->tableView_2->clearSelection();
+        ui->tableView_3->clearSelection();
+        ui->tableView_4->clearSelection();
+        ui->tableView_5->clearSelection();
         emit showPlannerPage();
         this->hide();
         saveMyDateToFile(strFile);
