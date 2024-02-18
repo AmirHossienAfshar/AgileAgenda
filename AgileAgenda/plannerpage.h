@@ -20,6 +20,8 @@ public:
     void updateNoteIDs(QSqlDatabase& db, int dateID); ////////////////////////////////////////////////////////////
     void updateToDoIDs(QSqlDatabase& db, int dateID);
     void updateLabel();
+    void updateDeleteButtonVisibility(); // hide delete push button for Notes list
+    void updateDeleteButtonVisibility2(); // hide delete push button for to do list
 
     ~PlannerPage();
 

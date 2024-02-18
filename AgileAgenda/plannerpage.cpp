@@ -18,9 +18,18 @@ PlannerPage::PlannerPage(QWidget *parent) :
     connect(ui->pushButton, &QPushButton::clicked, this, &PlannerPage::on_pushButton_clicked);
 
     connect(ui->pushButton_5, &QPushButton::clicked, this, &PlannerPage::on_pushButton_5_clicked);
+    ui->pushButton_5->hide();
+    ui->pushButton_7->hide();
 
     /*QString str = m_mainWindow->getMyDate();
     ui->label->setText(str);*/
+    /*if (ui->tableView)
+    {
+        qDebug () <<"things are fine";
+    }
+    else
+        qDebug()<<"NULLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl";*/
+
 
 
     /* old method of using a variable between two classes.
@@ -203,6 +212,7 @@ void PlannerPage::on_pushButton_4_clicked()  // show Notes list
 
     ui->tableView->setModel(m);
     //delete m;
+    connect(ui->tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PlannerPage::updateDeleteButtonVisibility);
 
     updateNoteIDs(db, what_date.toInt());
     //qDebug() << "Number of rows in the model: push button:" << m->rowCount();
@@ -270,6 +280,7 @@ void PlannerPage::on_pushButton_5_clicked()   // delete pushButton for Notes
     updateNoteIDs(db, 1); // this line is not nessesury since the view push button is clicked on earlier before!!
     /// this line is suspicius!! why is that having deleted 1 instead of date??? yet sounds to work correctly.
 
+    ui->pushButton_5->hide();
 }
 
 void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID)
@@ -487,6 +498,7 @@ void PlannerPage::on_pushButton_3_clicked() // show To-Do push button // newly a
 
     ui->tableView_2->setModel(m);
     //delete m;
+    connect(ui->tableView_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PlannerPage::updateDeleteButtonVisibility2);
 
     updateToDoIDs(db, what_date.toInt());
     //qDebug() << "Number of rows in the model: push button:" << m->rowCount();
@@ -617,5 +629,30 @@ void PlannerPage::on_pushButton_7_clicked() // delete push button fot To-Do list
 
     updateToDoIDs(db, 1); // this line is not nessesury since the view push button is clicked on earlier before!!
     /// this line is suspicius!! why is that having deleted 1 instead of date??? yet sounds to work correctly.
+    ui->pushButton_7->hide();
+
+}
+
+void PlannerPage::updateDeleteButtonVisibility()
+{
+    // Get the selected rows from the table view
+    qDebug() << "Selection changed";
+
+    QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
+
+    // Show the delete button if any rows are selected, hide it otherwise
+    ui->pushButton_5->setVisible(!selectedRows.isEmpty());
+
+}
+
+void PlannerPage::updateDeleteButtonVisibility2()
+{
+    // Get the selected rows from the table view
+    qDebug() << "Selection changed";
+
+    QModelIndexList selectedRows = ui->tableView_2->selectionModel()->selectedRows();
+
+    // Show the delete button if any rows are selected, hide it otherwise
+    ui->pushButton_7->setVisible(!selectedRows.isEmpty());
 }
 
