@@ -18,6 +18,7 @@ class PlannerPage : public QMainWindow
 public:
     explicit PlannerPage(QWidget *parent = nullptr);
     void updateNoteIDs(QSqlDatabase& db, int dateID); ////////////////////////////////////////////////////////////
+    void updateToDoIDs(QSqlDatabase& db, int dateID);
     void updateLabel();
 
     ~PlannerPage();
@@ -45,6 +46,8 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
 
 private:
     Ui::PlannerPage *ui;

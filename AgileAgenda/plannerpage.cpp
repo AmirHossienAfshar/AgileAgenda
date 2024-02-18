@@ -212,9 +212,8 @@ void PlannerPage::on_pushButton_4_clicked()  // show Notes list
 }
 
 
-void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
+void PlannerPage::on_pushButton_5_clicked()   // delete pushButton for Notes
 {
-    /// important: this has got a bug : when nothing is choosed and clicked, the program crashes.
     // Get the selected rows from the table view
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
 
@@ -224,6 +223,12 @@ void PlannerPage::on_pushButton_5_clicked()   // delete pushButton
         qDebug() << "Database not open!";
         return;
     }
+
+    if (selectedRows.isEmpty()) {
+        qDebug() << "No rows selected!";
+        return; // No rows selected, nothing to delete
+    }
+
     db.transaction();
 
 
@@ -279,6 +284,20 @@ void PlannerPage::updateNoteIDs(QSqlDatabase& db, int dateID)
     }
     else
         qDebug() <<"updeted nicly!";
+}
+
+void PlannerPage::updateToDoIDs(QSqlDatabase& db, int dateID)
+{
+    QSqlQuery updateQuery(db);
+
+    // Update the NoteID column for rows with the specified DateID
+
+    QString queryStr = QString("UPDATE ToDoList SET ToDoListID = (SELECT COUNT(*) FROM ToDoList AS n WHERE n.DateID = ToDoList.DateID AND n.rowid <= ToDoList.rowid) WHERE DateID = %1").arg(dateID);
+    if (!updateQuery.exec(queryStr)) {
+        qDebug() << "Error updating ToDoListID column for DateID" << dateID << ":" << updateQuery.lastError().text();
+    }
+    else
+        qDebug() <<"updeted nicly the to do list!";
 }
 
 QString PlannerPage::loadMyDateFromFile()
@@ -469,7 +488,7 @@ void PlannerPage::on_pushButton_3_clicked() // show To-Do push button // newly a
     ui->tableView_2->setModel(m);
     //delete m;
 
-    //updateNoteIDs(db, what_date.toInt()); // ??????????????????????????????????????????????????????????????????????????????
+    updateToDoIDs(db, what_date.toInt());
     //qDebug() << "Number of rows in the model: push button:" << m->rowCount();
 }
 
@@ -537,7 +556,66 @@ void PlannerPage::on_pushButton_6_clicked() // Insert to To-Do list push button
 
     ui->textEdit->clear();
     on_pushButton_3_clicked();
-    //updateNoteIDs(db, what_date.toInt()); //???????????????????????????????????????????????????????????????????????????????
+    updateToDoIDs(db, what_date.toInt());
+}
 
+
+void PlannerPage::on_pushButton_7_clicked() // delete push button fot To-Do list
+{
+    // Get the selected rows from the table view
+    QModelIndexList selectedRows = ui->tableView_2->selectionModel()->selectedRows();
+
+    // Start a transaction to ensure atomicity
+    QSqlDatabase db = QSqlDatabase::database(); // Assuming you've already set up your database connection
+    if (!db.isOpen()) {
+        qDebug() << "Database not open!";
+        return;
+    }
+
+    if (selectedRows.isEmpty()) {
+        qDebug() << "No rows selected!";
+        return; // No rows selected, nothing to delete
+    }
+
+    db.transaction();
+
+
+    // Iterate through the selected rows
+    for (auto it = selectedRows.begin(); it != selectedRows.end(); ++it)
+    {
+        // Get the row index
+        int row = it->row();
+
+
+        // Delete the corresponding data from the database
+        QSqlQuery query;
+        row++;
+        qDebug() << row;
+        query.exec("DELETE FROM ToDoList WHERE ToDoListID = '" + QString::number(row) + "'");
+
+
+        /*query.prepare("DELETE FROM Notes WHERE RowID = ?");
+        query.addBindValue(row + 1); // Adjust for 0-based row numbering
+        if (!query.exec()) {
+            qDebug() << "Error deleting row from database:" << query.lastError().text();
+            db.rollback(); // Rollback the transaction in case of error
+            return;
+        }*/
+
+        qDebug() << "Row deleted from database";
+
+        // Remove the row from the model
+        ui->tableView_2->model()->removeRow(row);
+    }
+
+    // Commit the transaction
+    if (!db.commit()) {
+        qDebug() << "Error committing transaction:" << db.lastError().text();
+    }
+
+    on_pushButton_3_clicked();
+
+    updateToDoIDs(db, 1); // this line is not nessesury since the view push button is clicked on earlier before!!
+    /// this line is suspicius!! why is that having deleted 1 instead of date??? yet sounds to work correctly.
 }
 
