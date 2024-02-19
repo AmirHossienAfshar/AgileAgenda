@@ -37,6 +37,7 @@ public:
     QPushButton *pushButton_2;
     QGroupBox *groupBox_4;
     QLabel *labelText;
+    QLabel *labelText_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,14 +96,14 @@ public:
 "color: rgb(188, 190, 136);"));
         pushButton = new QPushButton(groupBox_3);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(40, 110, 231, 51));
+        pushButton->setGeometry(QRect(30, 90, 231, 51));
         pushButton->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
 "color:  rgb(50, 66, 101);\n"
 ""));
         pushButton_2 = new QPushButton(groupBox_3);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(40, 180, 231, 51));
+        pushButton_2->setGeometry(QRect(30, 180, 231, 51));
         pushButton_2->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
 "color:  rgb(50, 66, 101);\n"
@@ -117,7 +118,18 @@ public:
 "color: rgb(188, 190, 136);"));
         labelText = new QLabel(groupBox_4);
         labelText->setObjectName("labelText");
-        labelText->setGeometry(QRect(40, 30, 171, 71));
+        labelText->setGeometry(QRect(30, 70, 241, 61));
+        labelText->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        labelText->setAlignment(Qt::AlignCenter);
+        labelText_2 = new QLabel(groupBox_4);
+        labelText_2->setObjectName("labelText_2");
+        labelText_2->setGeometry(QRect(30, 160, 241, 61));
+        labelText_2->setStyleSheet(QString::fromUtf8("background-color: rgb(188, 190, 136);\n"
+"color:  rgb(50, 66, 101);\n"
+""));
+        labelText_2->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(groupBox_2, 0, 1, 1, 1);
 
@@ -146,6 +158,7 @@ public:
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "Current Day Page", nullptr));
         groupBox_4->setTitle(QString());
         labelText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        labelText_2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

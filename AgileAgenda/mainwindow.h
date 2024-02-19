@@ -26,12 +26,15 @@ signals:
     void showCurrentDayPage();
     void showPlannerPage();
 
+
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
     void saveMyDateToFile(const QString &myDate);
     QString loadMyDateFromFile();
+
+    void Show_date(QString);
 
 
 private:

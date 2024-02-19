@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-//#include "currentday.h"
 #include <QDate>
 #include <QDir>
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include "QSqlQuery"
+#include "QSql"
+#include <QtSql/QSql>
+#include <QSqlError>
+#include <QSqlDatabase>
+#include <QSqlQueryModel>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -16,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::on_pushButton_2_clicked);
 
+
     //QPixmap Logo(":/images/image.png");
 
     QDate currentDate = QDate::currentDate();
@@ -23,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     MyDate = dateString;
     ui->labelText->setText(dateString);
-
-    //saveMyDateToFile(dateString);
+    //Show_date(dateString);
+    ui->labelText_2->hide();
 
 
 }
@@ -42,10 +48,16 @@ void MainWindow::on_pushButton_clicked() // goes to choose day page.
     this->hide();
     page2->show();
     */
-
-
     emit showCurrentDayPage();
     this->hide();
+
+    QDate currentDate = QDate::currentDate();
+    QString dateString = currentDate.toString("yyyy-MM-dd"); // Adjust the format as needed
+
+    MyDate = dateString;
+    Show_date(dateString);
+    ui->labelText_2->show();
+
 }
 
 
@@ -104,6 +116,44 @@ QString MainWindow::loadMyDateFromFile() {
         qDebug() << "Failed to open file for reading";
     }
     return myDate;
+}
+
+void MainWindow::Show_date(QString dateString)
+{
+    QStringList components = dateString.split("-");
+    int year = 0, month = 0, day = 0;
+
+    if (components.size() == 3)
+    {
+        year = components[0].toInt();
+        month = components[1].toInt();
+        day = components[2].toInt();
+    }
+    else
+    {
+        qDebug() << "Invalid date string format!";
+    }
+
+    QSqlQuery q2;
+    QString queryString = "SELECT fullDay FROM calender WHERE GregorianYear = '" + QString::number(year) + "' AND GregorianMonth = '" + QString::number(month) + "' AND GregorianDay = '" + QString::number(day) + "'";
+    //qDebug() << "Query: " << queryString;
+    if (!q2.exec(queryString)) {
+        qDebug() << "Query failed:" << q2.lastError().text();
+        return;
+    }
+
+    QString fullDay;
+    if (q2.next())
+    {
+        fullDay = q2.value(0).toString(); // Assuming fullDay is a column in the result
+        ui->labelText_2->setText(fullDay); // Set the text of the label to the value retrieved from the query
+        qDebug() << "Data retrieved from the query:" << fullDay;
+    }
+    else
+    {
+        qDebug() << "No matching date found.";
+        return;
+    }
 }
 
 
